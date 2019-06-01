@@ -11,6 +11,8 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "downlevelIteration": true,
+    "noUnusedLocals": true,
+    "noImplicitReturns": true,
     "declarationDir": "dist/types",
     "outDir": "dist/lib",
     "typeRoots": [

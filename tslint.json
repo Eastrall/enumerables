@@ -1,4 +1,5 @@
 {
+  "no-null-keyword": true,
   "extends": [
     "tslint-config-standard",
     "tslint-config-prettier"

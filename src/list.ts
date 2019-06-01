@@ -1,5 +1,6 @@
 import { Enumerable } from './enumerable';
 import { Collection } from "./collection";
+import * as Linq from './internal/linq';
 
 export class List<T> implements Collection<T>, Enumerable<T> {
     protected elements: Array<T>;
@@ -28,30 +29,31 @@ export class List<T> implements Collection<T>, Enumerable<T> {
     }
 
     public elementAt(index: number): T {
-        if (index < 0 || index >= this.elements.length) {
-            throw new Error('index is less than 0 or greater than or equal to the number of elements in source.');
-        }
-        return this.elements[index];
+        return Linq.elementAt(this.elements, index);
     }
 
     public elementAtOrDefault(index: number): T | undefined {
-        return index < 0 || index >= this.elements.length ? undefined : this.elements[index];
+        return Linq.elementAtOrDefault(this.elements, index);
+    }
+
+    public first(): T;
+    public first(predicate: (item: T) => boolean): T;
+    public first(predicate?: any): T {
+        if (predicate) {
+            return Linq.first(this.elements, predicate);
+        }
+
+        return Linq.first(this.elements);
     }
 
     public firstOrDefault(): T | undefined;
     public firstOrDefault(predicate: (item: T) => boolean): T | undefined;
     public firstOrDefault(predicate?: (item: T) => boolean): T | undefined {
         if (predicate) {
-            let elementsLength: number = this.elements.length;
-
-            for (let i = 0; i < elementsLength; ++i) {
-                if (predicate(this.elements[i])) {
-                    return this.elements[i];
-                }
-            }
+            return Linq.firstOrDefault(this.elements, predicate);
         }
 
-        return this.elementAtOrDefault(0);
+        return Linq.firstOrDefault(this.elements);
     }
 
     [Symbol.iterator](): Iterator<T> {
