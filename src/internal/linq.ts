@@ -24,7 +24,7 @@ export function elementAtOrDefault<T>(source: Array<T>, index: number): T | unde
     if (!source) {
         throw new Error('source array is undefined.');
     }
-    
+
     return index < 0 || index >= source.length ? undefined : source[index];
 }
 
@@ -46,23 +46,25 @@ export function first<T>(source: Array<T>, predicate?: (item: T) => boolean): T 
         throw new Error('source array is undefined.');
     }
 
-    if (source.length == 0) {
+    if (source.length === 0) {
         throw new Error('The source array is empty.');
     }
 
-    if (predicate) {
-        let length: number = source.length;
-
-        for (let i = 0; i < length; ++i) {
-            if (predicate(source[i])) {
-                return source[i];
-            }
-        }
-
-        throw new Error('No element satisfies the condition in predicate');
+    if (!predicate) {
+        return elementAt(source, 0);
     }
 
-    return elementAt(source, 0);
+    let length: number = source.length;
+
+    for (let i: number = 0; i < length; ++i) {
+        const element: T = source[i];
+
+        if (predicate(element)) {
+            return element;
+        }
+    }
+
+    throw new Error('No element satisfies the condition in predicate');
 }
 
 /**
@@ -83,17 +85,19 @@ export function firstOrDefault<T>(source: Array<T>, predicate?: (item: T) => boo
         throw new Error('source array is undefined.');
     }
 
-    if (predicate) {
-        let length: number = source.length;
-
-        for (let i = 0; i < length; ++i) {
-            if (predicate(source[i])) {
-                return source[i];
-            }
-        }
-
-        return undefined;
+    if (!predicate) {
+        return source.length > 0 ? source[0] : undefined;
     }
 
-    return source.length > 0 ? source[0] : undefined;
+    let length: number = source.length;
+
+    for (let i: number = 0; i < length; ++i) {
+        const element: T = source[i];
+
+        if (predicate(element)) {
+            return element;
+        }
+    }
+
+    return undefined;
 }
