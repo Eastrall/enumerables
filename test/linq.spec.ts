@@ -97,6 +97,46 @@ describe('Linq', () => {
     });
 
     describe('firstOrDefault', () => {
-        
+        const array: Array<number> = [7, 4, 2, 5, 3];
+        let undefinedArray: Array<number>;
+
+        it('should get the first element of an array', () => {
+            const element = Linq.firstOrDefault(array);
+
+            expect(element).toBeTruthy();
+            expect(element).toEqual(array[0]);
+            expect(element).toEqual(7);
+        });
+
+        it('should throw an error when getting first element of undefined array', () => {
+            expect(() => Linq.firstOrDefault(undefinedArray)).toThrow();
+        });
+
+        it('should get an undefined value when getting first element of empty array', () => {
+            expect(Linq.firstOrDefault([])).not.toBeTruthy();
+        });
+
+        it('should get the first element matching the predicate', () => {
+            const array: Array<Person> = [
+                { firstName: 'John', lastName: 'Doe', age: 42 },
+                { firstName: 'Jane', lastName: 'Doe', age: 38 }
+            ];
+            const element = Linq.firstOrDefault(array, x => x.age > 40);
+
+            expect(element).toBeTruthy();
+            expect(element).toEqual(array[0]);
+            expect(element.firstName).toEqual('John');
+            expect(element.lastName).toEqual('Doe');
+            expect(element.age).toEqual(42);
+        });
+
+        it('should get an undefined value when getting the first element not matching the predicate', () => {
+            const array: Array<Person> = [
+                { firstName: 'John', lastName: 'Doe', age: 42 },
+                { firstName: 'Jane', lastName: 'Doe', age: 38 }
+            ];
+            
+            expect(Linq.firstOrDefault(array, x => x.firstName === 'Clark')).not.toBeTruthy();
+        });
     });
 });

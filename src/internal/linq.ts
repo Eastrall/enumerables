@@ -40,6 +40,7 @@ export function first<T>(source: Array<T>): T
  * @param predicate A function to test each element for a condition.
  */
 export function first<T>(source: Array<T>, predicate: (item: T) => boolean): T;
+
 export function first<T>(source: Array<T>, predicate?: (item: T) => boolean): T {
     if (!source) {
         throw new Error('source array is undefined.');
@@ -78,5 +79,21 @@ export function firstOrDefault<T>(source: Array<T>): T | undefined;
 export function firstOrDefault<T>(source: Array<T>, predicate: (item: T) => boolean): T | undefined;
 
 export function firstOrDefault<T>(source: Array<T>, predicate?: (item: T) => boolean): T | undefined {
-    return undefined;
+    if (!source) {
+        throw new Error('source array is undefined.');
+    }
+
+    if (predicate) {
+        let length: number = source.length;
+
+        for (let i = 0; i < length; ++i) {
+            if (predicate(source[i])) {
+                return source[i];
+            }
+        }
+
+        return undefined;
+    }
+
+    return source.length > 0 ? source[0] : undefined;
 }
