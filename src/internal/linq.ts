@@ -62,7 +62,7 @@ export function first<T>(source: Array<T>, predicate?: (item: T) => boolean): T 
         throw new Error('No element satisfies the condition in predicate');
     }
 
-    return elementAt(source, 0)
+    return elementAt(source, 0);
 }
 
 /**
