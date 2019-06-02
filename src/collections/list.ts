@@ -1,6 +1,6 @@
-import { Enumerable } from './enumerable';
-import { Collection } from "./collection";
-import * as Linq from './internal/linq';
+import { Enumerable } from '../interfaces/enumerable';
+import { Collection } from "../interfaces/collection";
+import * as Linq from '../internal/linq';
 
 export class List<T> implements Collection<T>, Enumerable<T> {
     protected elements: Array<T>;

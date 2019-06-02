@@ -1,6 +1,6 @@
-import { List } from '../src';
+import { List } from '../src/enumerables';
 
-describe('A List object', () => {
+describe('List collection', () => {
     it('should create an empty instance.', () => {
         const list = new List<number>();
 

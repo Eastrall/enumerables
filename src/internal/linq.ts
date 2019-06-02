@@ -21,6 +21,10 @@ export function elementAt<T>(source: Array<T>, index: number): T {
  * @param index Zero-based index of the element to retrieve.
  */
 export function elementAtOrDefault<T>(source: Array<T>, index: number): T | undefined {
+    if (!source) {
+        throw new Error('source array is undefined.');
+    }
+    
     return index < 0 || index >= source.length ? undefined : source[index];
 }
 
@@ -33,7 +37,7 @@ export function first<T>(source: Array<T>): T
 /**
  * Returns the first element in a sequence that satisfies a specified condition.
  * @param source Native JavaScript array.
- * @param predicate A predicate function to test each element for a condition.
+ * @param predicate A function to test each element for a condition.
  */
 export function first<T>(source: Array<T>, predicate: (item: T) => boolean): T;
 export function first<T>(source: Array<T>, predicate?: (item: T) => boolean): T {
@@ -60,8 +64,19 @@ export function first<T>(source: Array<T>, predicate?: (item: T) => boolean): T 
     return elementAt(source, 0)
 }
 
+/**
+ * Returns the first element of a sequence, or a default value if the sequence contains no elements.
+ * @param source Native JavaScript array.
+ */
 export function firstOrDefault<T>(source: Array<T>): T | undefined;
+
+/**
+ * Returns the first element of the sequence that satisfies a condition or a default value if no such element is found.
+ * @param source Native JavaScript array.
+ * @param predicate A function to test each element for a condition.
+ */
 export function firstOrDefault<T>(source: Array<T>, predicate: (item: T) => boolean): T | undefined;
+
 export function firstOrDefault<T>(source: Array<T>, predicate?: (item: T) => boolean): T | undefined {
     return undefined;
 }
