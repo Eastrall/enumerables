@@ -3,17 +3,11 @@ import { Collection } from "../interfaces/collection";
 import * as Linq from '../internal/linq';
 
 export class List<T> implements Collection<T>, Enumerable<T> {
-    protected elements: Array<T>;
+    protected readonly elements: Array<T>;
 
-    constructor();
-    constructor(count: number);
-    constructor(array: Array<T>);
-    constructor(countOrArray?: number | Array<T> | undefined) {
-        if (typeof countOrArray === "number") {
-            this.elements = new Array<T>(countOrArray);
-        }
-        else if (typeof countOrArray === "object") {
-            this.elements = new Array<T>(...countOrArray);
+    constructor(array?: Array<T>) {
+        if (array) {
+            this.elements = new Array<T>(...array);
         }
         else {
             this.elements = new Array<T>();
@@ -25,7 +19,7 @@ export class List<T> implements Collection<T>, Enumerable<T> {
     }
 
     public count(): number {
-        return this.elements.length;
+        return Linq.count(this.elements);
     }
 
     public elementAt(index: number): T {
