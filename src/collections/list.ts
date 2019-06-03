@@ -18,8 +18,10 @@ export class List<T> implements Collection<T>, Enumerable<T> {
         this.elements.push(item);
     }
 
-    public count(): number {
-        return Linq.count(this.elements);
+    public count(): number;
+    public count(predicate: (item: T) => boolean): number;
+    public count(predicate?: (item: T) => boolean): number {
+        return predicate ? Linq.count(this.elements, predicate) : Linq.count(this.elements);
     }
 
     public elementAt(index: number): T {

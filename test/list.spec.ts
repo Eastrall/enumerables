@@ -49,6 +49,14 @@ describe('List', () => {
         expect(list.count()).toEqual(numberOfElements);
     });
 
+    it('should count the number of elements matching a predicate function', () => {
+        const numberOfElements: number = 10;
+        const list: List<number> = generateListOfNumbers(numberOfElements);
+
+        expect(list).toBeTruthy();
+        expect(list.count(x => x > 7)).toEqual(3);
+    });
+
     it('should get an element at a given index.', () => {
         const list: List<number> = generateListOfNumbers(10);
 
@@ -76,14 +84,14 @@ describe('List', () => {
             expect(() => list.first()).toThrow();
         });
     
-        it('should get the first element matching a predicate function', () => {
+        it('should get the first element matching a predicate function.', () => {
             const list: List<number> = generateListOfNumbers(10);
     
             expect(list).toBeTruthy();
             expect(list.first(x => x > 5)).toEqual(6);
         });
     
-        it('should throw an error when getting the first element not matching a predicate function', () => {
+        it('should throw an error when getting the first element not matching a predicate function.', () => {
             const list: List<number> = generateListOfNumbers(10);
     
             expect(list).toBeTruthy();
@@ -106,14 +114,14 @@ describe('List', () => {
             expect(list.firstOrDefault()).not.toBeTruthy();
         });
     
-        it('should get the first element matching a predicate function', () => {
+        it('should get the first element matching a predicate function.', () => {
             const list: List<number> = generateListOfNumbers(10);
     
             expect(list).toBeTruthy();
             expect(list.firstOrDefault(x => x > 5)).toEqual(6);
         });
     
-        it('should get an undefined value when getting the first element not matching a function predicate', () => {
+        it('should get an undefined value when getting the first element not matching a function predicate.', () => {
             const list: List<number> = generateListOfNumbers(10);
     
             expect(list).toBeTruthy();
@@ -121,7 +129,7 @@ describe('List', () => {
         });
     });
 
-    it('should iterate on a list', () => {
+    it('should iterate on all elements.', () => {
         let index: number = 0;
         const list: List<number> = generateListOfNumbers(10);
 
