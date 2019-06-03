@@ -188,6 +188,38 @@ describe('Linq', () => {
     });
 
     describe('lastOrDefault', () => {
-        // TODO
+        const array: Array<number> = [7, 4, 2, 5, 3];
+        let undefinedArray: Array<number>;
+
+        it('should get the last element.', () => {
+            const element = Linq.lastOrDefault(array);
+
+            expect(element).toBeTruthy();
+            expect(element).toEqual(array[array.length - 1]);
+            expect(element).toEqual(3);
+        });
+
+        it('should throw an error when getting the last element of an undefined array.', () => {
+            expect(() => Linq.lastOrDefault(undefinedArray)).toThrow();
+        });
+
+        it('should get an undefined value when getting the last element of an empty array.', () => {
+            expect(Linq.lastOrDefault([])).not.toBeTruthy();
+        });
+
+        it('should get the last element matching a predicate function.', () => {
+            const array: Array<Person> = [
+                { firstName: 'John', lastName: 'Doe', age: 42 },
+                { firstName: 'Jane', lastName: 'Doe', age: 38 },
+                { firstName: 'Clark', lastName: 'Lawson', age: 38 }
+            ];
+            const element = Linq.lastOrDefault(array, x => x.age == 38);
+
+            expect(element).toBeTruthy();
+            expect(element).toEqual(array[array.length - 1]);
+            expect(element.firstName).toEqual('Clark');
+            expect(element.lastName).toEqual('Lawson');
+            expect(element.age).toEqual(38);
+        });
     });
 });
