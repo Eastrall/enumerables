@@ -22,21 +22,13 @@ export function first<T>(source: Array<T>, predicate?: Func<T, boolean>): T {
         throw new Error('The source array is empty.');
     }
 
-    if (!predicate) {
-        return source[0];
+    const firstElement = getFirstElement(source, predicate);
+
+    if (!firstElement) {
+        throw new Error('No element satisfies the condition in predicate');
     }
 
-    let length: number = source.length;
-
-    for (let i: number = 0; i < length; ++i) {
-        const element: T = source[i];
-
-        if (predicate(element)) {
-            return element;
-        }
-    }
-
-    throw new Error('No element satisfies the condition in predicate');
+    return firstElement;
 }
 
 /**
@@ -57,11 +49,20 @@ export function firstOrDefault<T>(source: Array<T>, predicate?: Func<T, boolean>
         throw new Error('source array is undefined.');
     }
 
+    return getFirstElement(source, predicate);
+}
+
+/**
+ * Returns the first element of the sequence.
+ * @param source Native JavaScript array.
+ * @param predicate A function to test each element for a condition.
+ */
+function getFirstElement<T>(source: Array<T>, predicate?: Func<T, boolean>): T | undefined {
     if (!predicate) {
         return source.length > 0 ? source[0] : undefined;
     }
 
-    let length: number = source.length;
+    const length: number = source.length;
 
     for (let i: number = 0; i < length; ++i) {
         const element: T = source[i];

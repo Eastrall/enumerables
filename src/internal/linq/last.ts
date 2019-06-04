@@ -22,21 +22,13 @@ export function last<T>(source: Array<T>, predicate?: Func<T, boolean>): T {
         throw new Error('The source array is empty.');
     }
 
-    if (!predicate) {
-        return source[source.length - 1];
+    const lastElement = getLastElement(source, predicate);
+
+    if (!lastElement) {
+        throw new Error('No element satisfies the condition in predicate');
     }
 
-    let length: number = source.length;
-
-    for (let i = length - 1; i >= 0; --i) {
-        const element: T = source[i];
-
-        if (predicate(element)) {
-            return element;
-        }
-    }
-
-    throw new Error('No element satisfies the condition in predicate');
+    return lastElement;
 }
 
 /**
@@ -61,11 +53,15 @@ export function lastOrDefault<T>(source: Array<T>, predicate?: Func<T, boolean>)
         return undefined;
     }
     
-    if (!predicate) {
-        return source[source.length - 1];
-    }
+    return getLastElement(source, predicate);
+}
 
-    let length = source.length;
+function getLastElement<T>(source: Array<T>, predicate?: Func<T, boolean>): T | undefined {
+    const length = source.length;
+
+    if (!predicate) {
+        return source[length - 1];
+    }
 
     for (let i = length - 1; i >= 0; --i) {
         const element: T = source[i];
