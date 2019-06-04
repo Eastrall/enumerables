@@ -109,7 +109,7 @@ describe('List', () => {
     
         it('should get an undefined value when getting the first element of empty list.', () => {
             const list: List<number> = new List<number>();
-    
+
             expect(list).toBeTruthy();
             expect(list.firstOrDefault()).not.toBeTruthy();
         });
@@ -142,4 +142,47 @@ describe('List', () => {
             ++index;
         }
     });
+    
+    it('should clear the list', () => {
+        const list: List<number> = generateListOfNumbers(10);
+
+        expect(list.count()).toEqual(10);
+        list.clear();
+        expect(list.count()).toEqual(0);
+    });
+
+    it('should contains the element.', () => {
+        const list: List<number> = generateListOfNumbers(10);
+
+        expect(list.contains(1)).toEqual(true);
+        expect(list.contains(7)).toEqual(true);
+        expect(list.contains(9)).toEqual(true);
+    });
+
+    it('should not contains the element.', () => {
+        const list: List<number> = generateListOfNumbers(10);
+
+        expect(list.contains(-1)).toEqual(false);
+        expect(list.contains(12)).toEqual(false);
+        expect(list.contains(undefined)).toEqual(false);
+    });
+
+    it('should get the index of an element', () => {
+        const list: List<number> = generateListOfNumbers(10);
+
+        expect(list.indexOf(3)).toEqual(2);
+        expect(list.indexOf(7)).toEqual(6);
+    });
+
+    it('should remove an element.', () => {
+        const list: List<number> = generateListOfNumbers(10);
+
+        expect(() => list.remove(undefined)).toThrow();
+    })
+
+    it('should remove an element at a given index.', () => {
+        const list: List<number> = generateListOfNumbers(10);
+
+        expect(() => list.removeAt(undefined)).toThrow();
+    })
 });
