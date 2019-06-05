@@ -175,14 +175,31 @@ describe('List', () => {
     });
 
     it('should remove an element.', () => {
+        const numberToRemove = 4;
         const list: List<number> = generateListOfNumbers(10);
+        const removeResult: boolean = list.remove(numberToRemove);
 
-        expect(() => list.remove(undefined)).toThrow();
+        expect(removeResult).toEqual(true);
+        expect(list.count()).toEqual(9);
+        expect(list.indexOf(numberToRemove)).toEqual(-1);
     })
 
     it('should remove an element at a given index.', () => {
         const list: List<number> = generateListOfNumbers(10);
 
-        expect(() => list.removeAt(undefined)).toThrow();
-    })
+        list.removeAt(0);
+        
+        expect(list.first()).not.toEqual(1);
+        expect(list.count()).toEqual(9);
+        expect(list.indexOf(0)).toEqual(-1);
+    });
+
+    it('should return an array', () => {
+        const list: List<number> = generateListOfNumbers(10);
+
+        const array = list.toArray();
+
+        expect(array).toBeInstanceOf(Array);
+        expect(array.length).toEqual(list.count());
+    });
 });

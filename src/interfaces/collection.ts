@@ -14,4 +14,6 @@ export interface Collection<T> extends Enumerable<T> {
     remove(item: T): boolean;
 
     removeAt(index: number): void;
+
+    toArray(): Array<T>;
 }

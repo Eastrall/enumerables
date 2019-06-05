@@ -81,11 +81,27 @@ export class List<T> implements Collection<T>, Enumerable<T> {
     }
 
     public remove(item: T): boolean {
-        throw new Error("Method not implemented.");
+        if (this.elements.length == 0) {
+            return false;
+        }
+
+        const index: number = this.indexOf(item);
+
+        if (index < 0) {
+            return false;
+        }
+
+        this.removeAt(index);
+
+        return true;
     }
 
     public removeAt(index: number): void {
-        throw new Error("Method not implemented.");
+        this.elements.splice(index, 1);
+    }
+
+    public toArray(): Array<T> {
+        return new Array<T>(...this.elements);
     }
 
     [Symbol.iterator](): Iterator<T> {
