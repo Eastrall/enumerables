@@ -77,7 +77,7 @@ export class List<T> implements Collection<T>, Enumerable<T> {
     }
 
     public insert(index: number, item: T): void {
-        throw new Error("Method not implemented.");
+        this.elements.splice(index, 0, item);
     }
 
     public remove(item: T): boolean {
