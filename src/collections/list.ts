@@ -1,6 +1,7 @@
 import { Enumerable } from '../interfaces/enumerable';
 import { Collection } from "../interfaces/collection";
 import * as Linq from '../internal/linq';
+import { Func, Func2 } from '../internal/types';
 
 export class List<T> implements Collection<T>, Enumerable<T> {
     protected elements: Array<T>;
@@ -19,8 +20,8 @@ export class List<T> implements Collection<T>, Enumerable<T> {
     }
 
     public count(): number;
-    public count(predicate: (item: T) => boolean): number;
-    public count(predicate?: (item: T) => boolean): number {
+    public count(predicate: Func<T, boolean>): number;
+    public count(predicate?: Func<T, boolean>): number {
         return predicate ? Linq.count(this.elements, predicate) : Linq.count(this.elements);
     }
 
@@ -33,15 +34,47 @@ export class List<T> implements Collection<T>, Enumerable<T> {
     }
 
     public first(): T;
-    public first(predicate: (item: T) => boolean): T;
-    public first(predicate?: any): T {
+    public first(predicate: Func<T, boolean>): T;
+    public first(predicate?: Func<T, boolean>): T {
         return predicate ? Linq.first(this.elements, predicate) : Linq.first(this.elements);
     }
 
     public firstOrDefault(): T | undefined;
-    public firstOrDefault(predicate: (item: T) => boolean): T | undefined;
-    public firstOrDefault(predicate?: (item: T) => boolean): T | undefined {
+    public firstOrDefault(predicate: Func<T, boolean>): T | undefined;
+    public firstOrDefault(predicate?: Func<T, boolean>): T | undefined {
         return predicate ? Linq.firstOrDefault(this.elements, predicate) : Linq.firstOrDefault(this.elements);
+    }
+
+    public last(): T;
+    public last(predicate: Func<T, boolean>): T;
+    public last(predicate?: Func<T, boolean>): T {
+        return predicate ? Linq.last(this.elements, predicate) : Linq.last(this.elements);
+    }
+
+    public lastOrDefault(): T | undefined
+    public lastOrDefault(predicate: Func<T, boolean>): T | undefined;
+    public lastOrDefault(predicate?: Func<T, boolean>): T | undefined {
+        return predicate ? Linq.lastOrDefault(this.elements, predicate) : Linq.lastOrDefault(this.elements);
+    }
+
+    public select<TResult>(selector: Func<T, TResult>): Enumerable<TResult>;
+    public select<TResult>(selector: Func2<T, number, TResult>): Enumerable<TResult>;
+    public select<TResult>(selector: Func<T, TResult> | Func2<T, number, TResult>): Enumerable<TResult> {
+        return new List<TResult>(Linq.select<T, TResult>(this.elements, selector));
+    }
+
+    public where(predicate: Func<T, boolean>): Enumerable<T>;
+    public where(predicate: Func2<T, number, boolean>): Enumerable<T>;
+    public where(predicate: Func<T, boolean> | Func2<T, number, boolean>): Enumerable<T> {
+        return new List<T>(Linq.where(this.elements, predicate));
+    }
+
+    public take(count: number): Enumerable<T> {
+        return new List<T>(Linq.take(this.elements, count));
+    }
+
+    public takeLast(count: number): Enumerable<T> {
+        return new List<T>(Linq.takeLast(this.elements, count));
     }
 
     public clear(): void {
