@@ -12,7 +12,7 @@
   "author": "Filipe GOMES PEIXOTO <gomespeixoto.filipe@gmail.com>",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/Eastrall/enumerables"
   },
   "license": "MIT",
   "engines": {
@@ -73,25 +73,27 @@
     "singleQuote": true
   },
   "devDependencies": {
-    "@types/jest": "^24.0.13",
-    "@types/node": "^12.0.4",
+    "@types/jest": "^24.0.15",
+    "@types/node": "^12.0.8",
     "codecov": "^3.5.0",
     "jest": "^24.8.0",
     "jest-config": "^24.8.0",
-    "lint-staged": "^8.1.7",
+    "lint-staged": "^8.2.1",
     "lodash.camelcase": "^4.3.0",
-    "prettier": "^1.17.1",
-    "rollup": "^1.12.5",
+    "prettier": "^1.18.2",
+    "rollup": "^1.15.6",
     "rollup-plugin-commonjs": "^10.0.0",
     "rollup-plugin-json": "^4.0.0",
-    "rollup-plugin-node-resolve": "^5.0.0",
+    "rollup-plugin-node-resolve": "^5.0.3",
     "rollup-plugin-sourcemaps": "^0.4.2",
-    "rollup-plugin-typescript2": "^0.21.1",
+    "rollup-plugin-typescript2": "^0.21.2",
+    "shelljs": "^0.8.3",
     "ts-jest": "^24.0.2",
-    "ts-node": "^8.2.0",
+    "ts-node": "^8.3.0",
     "tslint": "^5.17.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-config-standard": "^8.0.1",
-    "typescript": "^3.5.1"
+    "typedoc": "^0.14.2",
+    "typescript": "^3.5.2"
   }
 }

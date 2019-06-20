@@ -3,29 +3,36 @@ import { Func, Func2 } from "../internal/types";
 export interface Enumerable<T> extends Iterable<T> {
     /**
      * Returns the number of elements in a sequence.
+     * @returns The number of elements in the input sequence.
      */
     count(): number;
 
     /**
      * Returns a number that represents how many elements in the specified sequence satisfy a condition.
      * @param predicate A function to test each element for a condition.
+     * @returns A number that represents how many elements in the sequence satisfy the condition in the predicate function.
      */
     count(predicate: Func<T, boolean>): number;
 
     /**
      * Returns the element at a specified index in a sequence.
      * @param index Zero-based index of the element to retrieve.
+     * @returns The element at the specified position in the source sequence.
+     * @throws Error, if index is less than 0 or greater than or equal to the number of elements in source.
      */
     elementAt(index: number): T;
 
     /**
      * Returns the element at a specified index in a sequence or a default value if the index is out of range.
      * @param index Zero-based index of the element to retrieve.
+     * @returns `undefined` if the index is outside the bounds of the source sequence; otherwise, the element at the specified position in the source sequence.
      */
     elementAtOrDefault(index: number): T | undefined;
 
     /**
      * Returns the first element of a sequence.
+     * @returns The first element in the specified sequence.
+     * @throws Error, if the input sequence is empty.
      */
     first(): T;
 

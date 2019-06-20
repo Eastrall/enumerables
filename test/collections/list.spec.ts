@@ -1,10 +1,12 @@
-import { List } from '../src/enumerables';
+import { List } from '../../src/enumerables';
 
 describe('List', () => {
-    function generateListOfNumbers(numberOfElements: number): List<number> {
-        const array = Array.from(Array(numberOfElements), (x, index) => index + 1);
+    function generateArrayOfNumbers(numberOfElements: number): Array<number> {
+        return Array.from(Array(numberOfElements), (x, index) => index + 1);
+    }
 
-        return new List<number>(array);
+    function generateListOfNumbers(numberOfElements: number): List<number> {
+        return new List<number>(generateArrayOfNumbers(numberOfElements));
     }
 
     it('should create an empty instance.', () => {
@@ -71,10 +73,12 @@ describe('List', () => {
 
     describe('first', () => {
         it('should get the first element.', () => {
-            const list: List<number> = generateListOfNumbers(10);
+            const array: Array<number> = generateArrayOfNumbers(10);
+            const list: List<number> = new List<number>(array);
     
             expect(list).toBeTruthy();
-            expect(list.first()).toEqual(1);
+            expect(array).toBeTruthy();
+            expect(list.first()).toEqual(array[0]);
         });
     
         it('should throw an error when getting the first element.', () => {
@@ -101,10 +105,11 @@ describe('List', () => {
 
     describe('firstOrDefault', () => {
         it('should get the first element.', () => {
-            const list: List<number> = generateListOfNumbers(10);
+            const array: Array<number> = generateArrayOfNumbers(10);
+            const list: List<number> = new List<number>(array);
     
             expect(list).toBeTruthy();
-            expect(list.firstOrDefault()).toEqual(1);
+            expect(list.firstOrDefault()).toEqual(array[0]);
         });
     
         it('should get an undefined value when getting the first element of empty list.', () => {
@@ -126,6 +131,51 @@ describe('List', () => {
     
             expect(list).toBeTruthy();
             expect(list.firstOrDefault(x => x > 20)).not.toBeTruthy();
+        });
+    });
+
+    describe('last', () => {
+        const array: Array<number> = generateArrayOfNumbers(10);
+        const list = new List<number>(array);
+        const emptyList = new List<number>();
+
+        it('should get the last element of the list.', () => {
+            expect(list.last()).toEqual(array[array.length - 1]);
+        });
+
+        it('should throw an error if the list is empty', () => {
+            expect(() => emptyList.last()).toThrow();
+        });
+
+        it('should get the last element of the list matching a predicate function.', () => {
+            expect(list.last(x => x > 5)).toEqual(array[array.length - 1]);
+        });
+
+        it('should throw an error if not elements match a predicate function.', () => {
+            expect(() => list.last(x => x > 30)).toThrow();
+            expect(() => emptyList.last(x => x > 30)).toThrow();
+        });
+    });
+
+    describe('lastOrDefault', () => {
+        const array: Array<number> = generateArrayOfNumbers(10);
+        const list = new List<number>(array);
+        const emptyList = new List<number>();
+        
+        it('should get the last element of collection.', () => {
+            expect(list.lastOrDefault()).toEqual(array[array.length - 1]);
+        });
+
+        it('should get an undefined value if the list is empty.', () => {
+            expect(emptyList.lastOrDefault()).toEqual(undefined);
+        });
+
+        it('should get the last element of list matching a predicate function', () => {
+            expect(list.lastOrDefault(x => x > 5)).toEqual(array[array.length - 1]);
+        });
+
+        it('should get an undefined value if any elements of the list matches the predicate function.', () => {
+            expect(list.lastOrDefault(x => x > 30)).toEqual(undefined);
         });
     });
 
@@ -151,53 +201,72 @@ describe('List', () => {
         expect(list.count()).toEqual(0);
     });
 
-    it('should contains the element.', () => {
+    describe('contains', () => {
         const list: List<number> = generateListOfNumbers(10);
 
-        expect(list.contains(1)).toEqual(true);
-        expect(list.contains(7)).toEqual(true);
-        expect(list.contains(9)).toEqual(true);
+        it('should contains the element.', () => {
+            expect(list.contains(1)).toEqual(true);
+            expect(list.contains(7)).toEqual(true);
+            expect(list.contains(9)).toEqual(true);
+        });
+    
+        it('should not contains the element.', () => {
+            expect(list.contains(-1)).toEqual(false);
+            expect(list.contains(12)).toEqual(false);
+            expect(list.contains(undefined)).toEqual(false);
+        });
     });
 
-    it('should not contains the element.', () => {
+    describe('indexOf', () => {
         const list: List<number> = generateListOfNumbers(10);
 
-        expect(list.contains(-1)).toEqual(false);
-        expect(list.contains(12)).toEqual(false);
-        expect(list.contains(undefined)).toEqual(false);
+        it('should get the index of an element', () => {
+            expect(list.indexOf(3)).toEqual(2);
+            expect(list.indexOf(7)).toEqual(6);
+            expect(list.indexOf(undefined)).toEqual(-1);
+            expect(list.indexOf(-1)).toEqual(-1);
+            expect(list.indexOf(12)).toEqual(-1);
+        });
     });
 
-    it('should get the index of an element', () => {
+    describe('remove', () => {
         const list: List<number> = generateListOfNumbers(10);
 
-        expect(list.indexOf(3)).toEqual(2);
-        expect(list.indexOf(7)).toEqual(6);
+        it('should remove an element.', () => {
+            const numberToRemove = 4;
+            const removeResult: boolean = list.remove(numberToRemove);
+    
+            expect(removeResult).toEqual(true);
+            expect(list.count()).toEqual(9);
+            expect(list.indexOf(numberToRemove)).toEqual(-1);
+        });
+
+        it('should return false if element doesn\'t exists.', () => {
+            expect(list.remove(12)).toEqual(false);
+            expect(list.remove(-3)).toEqual(false);
+        });
     });
 
-    it('should remove an element.', () => {
-        const numberToRemove = 4;
-        const list: List<number> = generateListOfNumbers(10);
-        const removeResult: boolean = list.remove(numberToRemove);
-
-        expect(removeResult).toEqual(true);
-        expect(list.count()).toEqual(9);
-        expect(list.indexOf(numberToRemove)).toEqual(-1);
-    })
-
-    it('should remove an element at a given index.', () => {
+    describe('removeAt', () => {
         const list: List<number> = generateListOfNumbers(10);
 
-        list.removeAt(0);
-        
-        expect(list.first()).not.toEqual(1);
-        expect(list.count()).toEqual(9);
-        expect(list.indexOf(0)).toEqual(-1);
+        it('should remove an element at a given index.', () => {
+            list.removeAt(0);
+            
+            expect(list.first()).not.toEqual(1);
+            expect(list.count()).toEqual(9);
+            expect(list.indexOf(0)).toEqual(-1);
+        });
+
+        it('should throw an error if index is out of list bounds.', () => {
+            expect(() => list.removeAt(-1)).toThrow();
+            expect(() => list.removeAt(12)).toThrow();
+        });
     });
 
     it('should return an array', () => {
         const list: List<number> = generateListOfNumbers(10);
-
-        const array = list.toArray();
+        const array: Array<number> = list.toArray();
 
         expect(array).toBeInstanceOf(Array);
         expect(array.length).toEqual(list.count());
