@@ -1,0 +1,28 @@
+# General build informations
+language: node_js
+sudo: required
+dist: xenial
+cache:
+  directories:
+    - ~/.npm
+    - node_modules
+notifications:
+  email: false
+node_js:
+  - '10'
+  - '11'
+  - '8'
+  - '6'
+script:
+  - npm run build && npm run test:prod
+  - npm run build:docs
+after_success:
+  - ./node_modules/.bin/codecov --token="$CODECOV_TOKEN"
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GH_TOKEN
+  keep_history: true
+  on:
+    branch: master
