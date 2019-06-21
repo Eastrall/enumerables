@@ -3,6 +3,7 @@
  * @param source Native JavaScript array.
  * @param count The number of elements to return.
  * @returns An Array<T> that contains the specified number of elements from the start of the input sequence.
+ * @throws If the input `source` is `undefined`.
  */
 export function take<T>(source: Array<T>, count: number): Array<T> {
     if (!source) {
@@ -24,6 +25,7 @@ export function take<T>(source: Array<T>, count: number): Array<T> {
  * @param source Native JavaScript array.
  * @param count The number of elements to return.
  * @returns An Array<T> that contains the specified number of elements from the end of the input sequence.
+ * @throws If the input `source` is `undefined`.
  */
 export function takeLast<T>(source: Array<T>, count: number): Array<T> {
     if (!source) {

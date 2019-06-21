@@ -28,4 +28,8 @@ describe('where', () => {
     it('should throw an error when the source array is undefined.', () => {
         expect(() => Linq.where(undefined, item => !item)).toThrow();
     });
+
+    it('should throw an error when the predicate is undefined', () => {
+        expect(() => Linq.where(array, undefined)).toThrow();
+    });
 });
