@@ -8,5 +8,6 @@ export * from './max';
 export * from './min';
 export * from './select';
 export * from './single';
+export * from './sum';
 export * from './take';
 export * from './where';
