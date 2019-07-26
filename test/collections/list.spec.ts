@@ -28,6 +28,18 @@ describe('List', () => {
         }
     });
 
+    it('should iterate through the list using for..of statement', () => {
+        const array: Array<number> = [0, 2, 1, 4, 5];
+        const list = new List<number>(array);
+
+        expect(list).toBeTruthy();
+
+        let i: number = 0;
+        for (const item of list) {
+            expect(array[i++]).toEqual(item);
+        }
+    });
+
     it('should add a new item.', () => {
         const numberOfElements: number = 10;
         const list = new List<number>();
