@@ -4,7 +4,7 @@ import { Func } from '../types';
  * Determines whether a sequence contains any elements.
  * @param source Native JavaScript array.
  * @returns `true` if the source sequence contains any elements; otherwise, `false`.
- * @throws If the input `source` is `undefined`.
+ * @throws {Error} `source` is `undefined`.
  */
 export function any<T>(source: Array<T>): boolean;
 
@@ -13,7 +13,7 @@ export function any<T>(source: Array<T>): boolean;
  * @param source Native JavaScript array.
  * @param predicate A function to test each element for a condition.
  * @returns `true` if any elements in the source sequence pass the test in the specified predicate; otherwise, `false`.
- * @throws If the input `source` is `undefined`.
+ * @throws {Error} `source` is `undefined`.
  */
 export function any<T>(source: Array<T>, predicate: Func<T, boolean>): boolean;
 
