@@ -145,7 +145,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/5b4b926/src/collections/list.ts#L7">collections/list.ts:7</a></li>
+									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/f69a5a3/src/collections/list.ts#L7">collections/list.ts:7</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -167,7 +167,7 @@
 					<div class="tsd-signature tsd-kind-icon">elements<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/5b4b926/src/collections/list.ts#L7">collections/list.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/f69a5a3/src/collections/list.ts#L7">collections/list.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -185,7 +185,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/enumerable.html">Enumerable</a>.<a href="../interfaces/enumerable.html#___iterator">__@iterator</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/5b4b926/src/collections/list.ts#L152">collections/list.ts:152</a></li>
+									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/f69a5a3/src/collections/list.ts#L211">collections/list.ts:211</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -208,9 +208,14 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/collection.html">Collection</a>.<a href="../interfaces/collection.html#add">add</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/5b4b926/src/collections/list.ts#L19">collections/list.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/f69a5a3/src/collections/list.ts#L21">collections/list.ts:21</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds an object at the end of the collection.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -232,9 +237,14 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/collection.html">Collection</a>.<a href="../interfaces/collection.html#clear">clear</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/5b4b926/src/collections/list.ts#L93">collections/list.ts:93</a></li>
+									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/f69a5a3/src/collections/list.ts#L140">collections/list.ts:140</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes all elements from the collection.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -250,9 +260,14 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/collection.html">Collection</a>.<a href="../interfaces/collection.html#contains">contains</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/5b4b926/src/collections/list.ts#L98">collections/list.ts:98</a></li>
+									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/f69a5a3/src/collections/list.ts#L147">collections/list.ts:147</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Determines whether the collection contains a specific value.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -260,6 +275,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>True if the item is found in the collection; false otherwise.</p>
 						</li>
 					</ul>
 				</section>
@@ -275,18 +291,39 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/enumerable.html">Enumerable</a>.<a href="../interfaces/enumerable.html#count">count</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/5b4b926/src/collections/list.ts#L24">collections/list.ts:24</a></li>
+									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/f69a5a3/src/collections/list.ts#L28">collections/list.ts:28</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns a number that represents how many elements in the specified sequence.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>If the input <code>source</code> is <code>undefined</code>.</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>The number of elements in the input sequence.</p>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/enumerable.html">Enumerable</a>.<a href="../interfaces/enumerable.html#count">count</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/5b4b926/src/collections/list.ts#L25">collections/list.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/f69a5a3/src/collections/list.ts#L32">collections/list.ts:32</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns a number that represents how many elements in the specified sequence satisfy a condition.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>If the input <code>source</code> is <code>undefined</code>.</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -294,6 +331,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>The number of elements in the input sequence.</p>
 						</li>
 					</ul>
 				</section>
@@ -308,9 +346,22 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/enumerable.html">Enumerable</a>.<a href="../interfaces/enumerable.html#elementat">elementAt</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/5b4b926/src/collections/list.ts#L31">collections/list.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/f69a5a3/src/collections/list.ts#L40">collections/list.ts:40</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the element at a specified index in a sequence.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>If the input <code>source</code> is <code>undefined</code>.</p>
+									</dd>
+									<dt>throws</dt>
+									<dd><p>If <code>index</code> is less than 0 or greater than or equal to the number of elements in <code>source</code>.</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -318,6 +369,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
+							<p>The element at the specified position in the source sequence.</p>
 						</li>
 					</ul>
 				</section>
@@ -332,9 +384,19 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/enumerable.html">Enumerable</a>.<a href="../interfaces/enumerable.html#elementatordefault">elementAtOrDefault</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/5b4b926/src/collections/list.ts#L36">collections/list.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/f69a5a3/src/collections/list.ts#L47">collections/list.ts:47</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the element at a specified index in a sequence or a default value if the index is out of range.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>If the input <code>source</code> is <code>undefined</code>.</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -345,6 +407,7 @@
 								<span class="tsd-signature-symbol"> | </span>
 								<span class="tsd-signature-type">undefined</span>
 							</h4>
+							<p><code>undefined</code> if the index is outside the bounds of the source sequence; otherwise, the element at the specified position in the source sequence.</p>
 						</li>
 					</ul>
 				</section>
@@ -360,18 +423,48 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/enumerable.html">Enumerable</a>.<a href="../interfaces/enumerable.html#first">first</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/5b4b926/src/collections/list.ts#L41">collections/list.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/f69a5a3/src/collections/list.ts#L54">collections/list.ts:54</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the first element of a sequence.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>If the input <code>source</code> is <code>undefined</code>.</p>
+									</dd>
+									<dt>throws</dt>
+									<dd><p>If the input <code>source</code> sequence is empty.</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
+							<p>The first element in the specified sequence.</p>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/enumerable.html">Enumerable</a>.<a href="../interfaces/enumerable.html#first">first</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/5b4b926/src/collections/list.ts#L42">collections/list.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/f69a5a3/src/collections/list.ts#L58">collections/list.ts:58</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the first element in a sequence that satisfies a specified condition.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>If the input <code>source</code> is <code>undefined</code>.</p>
+									</dd>
+									<dt>throws</dt>
+									<dd><p>If the input <code>source</code> sequence is empty.</p>
+									</dd>
+									<dt>throws</dt>
+									<dd><p>If no element satisfies the condition in <code>predicate</code>.</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -379,6 +472,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
+							<p>The first element in the sequence that passes the test in the specified predicate function.</p>
 						</li>
 					</ul>
 				</section>
@@ -394,21 +488,42 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/enumerable.html">Enumerable</a>.<a href="../interfaces/enumerable.html#firstordefault">firstOrDefault</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/5b4b926/src/collections/list.ts#L48">collections/list.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/f69a5a3/src/collections/list.ts#L66">collections/list.ts:66</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the first element of a sequence, or a default value if the sequence contains no elements.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>If the input <code>source</code> is <code>undefined</code>.</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span>
 								<span class="tsd-signature-symbol"> | </span>
 								<span class="tsd-signature-type">undefined</span>
 							</h4>
+							<p><code>undefined</code> if <code>source</code> is empty; otherwise, the first element in <code>source</code>.</p>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/enumerable.html">Enumerable</a>.<a href="../interfaces/enumerable.html#firstordefault">firstOrDefault</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/5b4b926/src/collections/list.ts#L49">collections/list.ts:49</a></li>
+									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/f69a5a3/src/collections/list.ts#L70">collections/list.ts:70</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the first element of the sequence that satisfies a condition or a default value if no such element is found.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>If the input <code>source</code> is <code>undefined</code>.</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -419,6 +534,7 @@
 								<span class="tsd-signature-symbol"> | </span>
 								<span class="tsd-signature-type">undefined</span>
 							</h4>
+							<p><code>undefined</code> if <code>source</code> is empty or if no element passes the test specified by <code>predicate</code>; otherwise, the first element in <code>source</code> that passes the test specified by <code>predicate</code>.</p>
 						</li>
 					</ul>
 				</section>
@@ -433,9 +549,14 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/collection.html">Collection</a>.<a href="../interfaces/collection.html#indexof">indexOf</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/5b4b926/src/collections/list.ts#L103">collections/list.ts:103</a></li>
+									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/f69a5a3/src/collections/list.ts#L154">collections/list.ts:154</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Searches for the specified object and returns the zero-based index of the first occurrence within the entire collection.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -443,6 +564,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>The zero-based index of the first occurrence of item within the entire collection; otherwise, -1.</p>
 						</li>
 					</ul>
 				</section>
@@ -457,9 +579,19 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/collection.html">Collection</a>.<a href="../interfaces/collection.html#insert">insert</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/5b4b926/src/collections/list.ts#L118">collections/list.ts:118</a></li>
+									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/f69a5a3/src/collections/list.ts#L171">collections/list.ts:171</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Inserts an element into the collection at the specified index.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>Error when the index is less than 0 or index is grather than the collection count.</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -485,18 +617,48 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/enumerable.html">Enumerable</a>.<a href="../interfaces/enumerable.html#last">last</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/5b4b926/src/collections/list.ts#L55">collections/list.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/f69a5a3/src/collections/list.ts#L78">collections/list.ts:78</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the last element of a sequence.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>If the input <code>source</code> is <code>undefined</code>.</p>
+									</dd>
+									<dt>throws</dt>
+									<dd><p>If the input <code>source</code> sequence is empty.</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
+							<p>The value at the last position in the source sequence.</p>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/enumerable.html">Enumerable</a>.<a href="../interfaces/enumerable.html#last">last</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/5b4b926/src/collections/list.ts#L56">collections/list.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/f69a5a3/src/collections/list.ts#L82">collections/list.ts:82</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the last element of a sequence.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>If the input <code>source</code> is <code>undefined</code>.</p>
+									</dd>
+									<dt>throws</dt>
+									<dd><p>If the input <code>source</code> sequence is empty.</p>
+									</dd>
+									<dt>throws</dt>
+									<dd><p>If no element satisfies the condition in <code>predicate</code>.</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -504,6 +666,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
+							<p>The last element in the sequence that passes the test in the specified predicate function.</p>
 						</li>
 					</ul>
 				</section>
@@ -519,21 +682,42 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/enumerable.html">Enumerable</a>.<a href="../interfaces/enumerable.html#lastordefault">lastOrDefault</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/5b4b926/src/collections/list.ts#L62">collections/list.ts:62</a></li>
+									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/f69a5a3/src/collections/list.ts#L90">collections/list.ts:90</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the last element of a sequence, or a default value if no element is found.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>If the input <code>source</code> is <code>undefined</code>.</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span>
 								<span class="tsd-signature-symbol"> | </span>
 								<span class="tsd-signature-type">undefined</span>
 							</h4>
+							<p><code>undefined</code> if the <code>source</code> sequence is empty; otherwise, the last element in the <code>Array&lt;T&gt;</code>.</p>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/enumerable.html">Enumerable</a>.<a href="../interfaces/enumerable.html#lastordefault">lastOrDefault</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/5b4b926/src/collections/list.ts#L63">collections/list.ts:63</a></li>
+									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/f69a5a3/src/collections/list.ts#L94">collections/list.ts:94</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the last element of a sequence, or a default value if no element is found.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>If the input <code>source</code> is <code>undefined</code>.</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -544,6 +728,7 @@
 								<span class="tsd-signature-symbol"> | </span>
 								<span class="tsd-signature-type">undefined</span>
 							</h4>
+							<p><code>undefined</code> if the sequence is empty or if no elements pass the test in the predicate function; otherwise, the last element that passes the test in the predicate function.</p>
 						</li>
 					</ul>
 				</section>
@@ -558,9 +743,14 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/collection.html">Collection</a>.<a href="../interfaces/collection.html#remove">remove</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/5b4b926/src/collections/list.ts#L123">collections/list.ts:123</a></li>
+									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/f69a5a3/src/collections/list.ts#L178">collections/list.ts:178</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes the first occurrence of a specific object from the collection.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -568,6 +758,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>true if item is successfully removed; otherwise, false. This method also returns false if the item was not found.</p>
 						</li>
 					</ul>
 				</section>
@@ -582,9 +773,19 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/collection.html">Collection</a>.<a href="../interfaces/collection.html#removeat">removeAt</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/5b4b926/src/collections/list.ts#L136">collections/list.ts:136</a></li>
+									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/f69a5a3/src/collections/list.ts#L193">collections/list.ts:193</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes the element at the specified index of the collection.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>Error when the index is less than 0 or index is grather than the collection count.</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -599,15 +800,30 @@
 					<a name="select" class="tsd-anchor"></a>
 					<h3>select</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">select&lt;TResult&gt;<span class="tsd-signature-symbol">(</span>selector<span class="tsd-signature-symbol">: </span><a href="../globals.html#func" class="tsd-signature-type">Func</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TResult</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="../globals.html#func2" class="tsd-signature-type">Func2</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TResult</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/enumerable.html" class="tsd-signature-type">Enumerable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TResult</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">select&lt;TResult&gt;<span class="tsd-signature-symbol">(</span>selector<span class="tsd-signature-symbol">: </span><a href="../globals.html#func" class="tsd-signature-type">Func</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TResult</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/enumerable.html" class="tsd-signature-type">Enumerable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TResult</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">select&lt;TResult&gt;<span class="tsd-signature-symbol">(</span>selector<span class="tsd-signature-symbol">: </span><a href="../globals.html#func2" class="tsd-signature-type">Func2</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TResult</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/enumerable.html" class="tsd-signature-type">Enumerable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TResult</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/enumerable.html">Enumerable</a>.<a href="../interfaces/enumerable.html#select">select</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/5b4b926/src/collections/list.ts#L71">collections/list.ts:71</a></li>
+									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/f69a5a3/src/collections/list.ts#L102">collections/list.ts:102</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Projects each element of a sequence into a new form.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>If the input <code>source</code> is <code>undefined</code>.</p>
+									</dd>
+									<dt>throws</dt>
+									<dd><p>If the input <code>selector</code> is <code>undefined</code>.</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
@@ -617,10 +833,46 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>selector: <a href="../globals.html#func" class="tsd-signature-type">Func</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TResult</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="../globals.html#func2" class="tsd-signature-type">Func2</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TResult</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>selector: <a href="../globals.html#func" class="tsd-signature-type">Func</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TResult</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/enumerable.html" class="tsd-signature-type">Enumerable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TResult</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>An <code>Enumerable&lt;T&gt;</code> whose elements are the result of invoking the transform function on each element of <code>source</code>.</p>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/enumerable.html">Enumerable</a>.<a href="../interfaces/enumerable.html#select">select</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/f69a5a3/src/collections/list.ts#L106">collections/list.ts:106</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Projects each element of a sequence into a new form.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>If the input <code>source</code> is <code>undefined</code>.</p>
+									</dd>
+									<dt>throws</dt>
+									<dd><p>If the input <code>selector</code> is <code>undefined</code>.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>TResult</h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>selector: <a href="../globals.html#func2" class="tsd-signature-type">Func2</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TResult</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/enumerable.html" class="tsd-signature-type">Enumerable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TResult</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>An <code>Enumerable&lt;T&gt;</code> whose elements are the result of invoking the transform function on each element of <code>source</code>.</p>
 						</li>
 					</ul>
 				</section>
@@ -635,9 +887,19 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/enumerable.html">Enumerable</a>.<a href="../interfaces/enumerable.html#take">take</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/5b4b926/src/collections/list.ts#L83">collections/list.ts:83</a></li>
+									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/f69a5a3/src/collections/list.ts#L126">collections/list.ts:126</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns a specified number of contiguous elements from the start of a sequence.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>If the input <code>source</code> is <code>undefined</code>.</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -645,6 +907,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/enumerable.html" class="tsd-signature-type">Enumerable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>An <code>Enumerable&lt;T&gt;</code> that contains the specified number of elements from the start of the input sequence.</p>
 						</li>
 					</ul>
 				</section>
@@ -659,9 +922,19 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/enumerable.html">Enumerable</a>.<a href="../interfaces/enumerable.html#takelast">takeLast</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/5b4b926/src/collections/list.ts#L88">collections/list.ts:88</a></li>
+									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/f69a5a3/src/collections/list.ts#L133">collections/list.ts:133</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns a specified number of contiguous elements from the end of a sequence.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>If the input <code>source</code> is <code>undefined</code>.</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -669,6 +942,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/enumerable.html" class="tsd-signature-type">Enumerable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>An <code>Enumerable&lt;T&gt;</code> that contains the specified number of elements from the end of the input sequence.</p>
 						</li>
 					</ul>
 				</section>
@@ -683,9 +957,14 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/enumerable.html">Enumerable</a>.<a href="../interfaces/enumerable.html#toarray">toArray</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/5b4b926/src/collections/list.ts#L145">collections/list.ts:145</a></li>
+									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/f69a5a3/src/collections/list.ts#L204">collections/list.ts:204</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Copies the elements of the collection into a new Array.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
@@ -694,22 +973,67 @@
 					<a name="where" class="tsd-anchor"></a>
 					<h3>where</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">where<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">: </span><a href="../globals.html#func" class="tsd-signature-type">Func</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="../globals.html#func2" class="tsd-signature-type">Func2</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/enumerable.html" class="tsd-signature-type">Enumerable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">where<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">: </span><a href="../globals.html#func" class="tsd-signature-type">Func</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/enumerable.html" class="tsd-signature-type">Enumerable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">where<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">: </span><a href="../globals.html#func2" class="tsd-signature-type">Func2</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/enumerable.html" class="tsd-signature-type">Enumerable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/enumerable.html">Enumerable</a>.<a href="../interfaces/enumerable.html#where">where</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/5b4b926/src/collections/list.ts#L78">collections/list.ts:78</a></li>
+									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/f69a5a3/src/collections/list.ts#L114">collections/list.ts:114</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Filters a sequence of values based on a predicate.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>If the input <code>source</code> is <code>undefined</code>.</p>
+									</dd>
+									<dt>throws</dt>
+									<dd><p>If the input <code>predicate</code> is <code>undefined</code>.</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>predicate: <a href="../globals.html#func" class="tsd-signature-type">Func</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="../globals.html#func2" class="tsd-signature-type">Func2</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>predicate: <a href="../globals.html#func" class="tsd-signature-type">Func</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/enumerable.html" class="tsd-signature-type">Enumerable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>An <code>Enumerable&lt;T&gt;</code> that contains elements from the input sequence that satisfy the condition.</p>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/enumerable.html">Enumerable</a>.<a href="../interfaces/enumerable.html#where">where</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Eastrall/enumerables/blob/f69a5a3/src/collections/list.ts#L118">collections/list.ts:118</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Filters a sequence of values based on a predicate.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>If the input <code>source</code> is <code>undefined</code>.</p>
+									</dd>
+									<dt>throws</dt>
+									<dd><p>If the input <code>predicate</code> is <code>undefined</code>.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>predicate: <a href="../globals.html#func2" class="tsd-signature-type">Func2</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/enumerable.html" class="tsd-signature-type">Enumerable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>An <code>Enumerable&lt;T&gt;</code> that contains elements from the input sequence that satisfy the condition.</p>
 						</li>
 					</ul>
 				</section>
