@@ -38,7 +38,7 @@ export function aggregate<TSource, TAccumulate, TResult>(source: Array<TSource>,
 
     const sourceLength: number = source.length;
 
-    if (sourceLength == 0) {
+    if (sourceLength === 0) {
         throw new Error('source contains no elements.');
     }
 

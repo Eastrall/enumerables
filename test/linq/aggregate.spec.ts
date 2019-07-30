@@ -20,7 +20,7 @@ describe('Linq', () => {
         // https://docs.microsoft.com/fr-fr/dotnet/api/system.linq.enumerable.aggregate?view=netcore-2.2#System_Linq_Enumerable_Aggregate__2_System_Collections_Generic_IEnumerable___0____1_System_Func___1___0___1__
         it('should apply an accumulator over a sequence using a seed value.', () => {
             const numbers: Array<number> = [4, 8, 8, 3, 9, 0, 7, 8, 2];
-            const evenNumbers: number = Linq.aggregate(numbers, 0, (total, next) => next % 2 == 0 ? total + 1 : total);
+            const evenNumbers: number = Linq.aggregate(numbers, 0, (total, next) => next % 2 === 0 ? total + 1 : total);
 
             expect(evenNumbers).toEqual(6);
         });

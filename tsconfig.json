@@ -13,6 +13,10 @@
     "downlevelIteration": true,
     "noUnusedLocals": true,
     "noImplicitReturns": true,
+    "allowJs": false,
+    "allowUnreachableCode": false,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
     "declarationDir": "dist/types",
     "outDir": "dist/lib",
     "typeRoots": [

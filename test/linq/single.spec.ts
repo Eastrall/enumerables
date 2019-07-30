@@ -29,7 +29,7 @@ describe('Linq', () => {
         });
     
         it('should throw an error if more than one element matches a predicate function.', () => {
-            expect(() => Linq.single(linearNumbers, x => x % 2 == 0)).toThrow();
+            expect(() => Linq.single(linearNumbers, x => x % 2 === 0)).toThrow();
         });
     
         it('should throw an error if no elements matches a predicate function.', () => {
@@ -61,7 +61,7 @@ describe('Linq', () => {
         });
 
         it('should throw an error if more than one element matches a predicate function.', () => {
-            expect(() => Linq.singleOrDefault(linearNumbers, x => x % 2 == 0)).toThrow();
+            expect(() => Linq.singleOrDefault(linearNumbers, x => x % 2 === 0)).toThrow();
         });
 
         it('should get an undefined value if no elements matches a predicate function.', () => {

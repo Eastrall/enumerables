@@ -66,15 +66,15 @@ export class List<T> implements Collection<T>, Enumerable<T> {
     }
 
     /* @inheritdoc */
-    public select<TResult>(selector: Func<T, TResult>): Enumerable<TResult>;
-    public select<TResult>(selector: Func2<T, number, TResult>): Enumerable<TResult>;
+    // public select<TResult>(selector: Func<T, TResult>): Enumerable<TResult>;
+    // public select<TResult>(selector: Func2<T, number, TResult>): Enumerable<TResult>;
     public select<TResult>(selector: Func<T, TResult> | Func2<T, number, TResult>): Enumerable<TResult> {
         return new List<TResult>(Linq.select<T, TResult>(this.elements, selector));
     }
 
     /* @inheritdoc */
-    public where(predicate: Func<T, boolean>): Enumerable<T>;
-    public where(predicate: Func2<T, number, boolean>): Enumerable<T>;
+    // public where(predicate: Func<T, boolean>): Enumerable<T>;
+    // public where(predicate: Func2<T, number, boolean>): Enumerable<T>;
     public where(predicate: Func<T, boolean> | Func2<T, number, boolean>): Enumerable<T> {
         return new List<T>(Linq.where(this.elements, predicate));
     }
@@ -149,20 +149,24 @@ export class List<T> implements Collection<T>, Enumerable<T> {
     /**
      * Interates over the collection.
      */
-    [Symbol.iterator](): Iterator<T> {
+    public [Symbol.iterator](): Iterator<T> {
         let cursor: number = 0;
         const elements = this.elements;
         const elementsLength = this.elementAt.length;
 
         return {
-            next(): IteratorResult<T> {
-                if (cursor < elementsLength) {
-                    return { done: false, value: elements[cursor++] };
+            next: function() {
+                return {
+                    done: cursor < elementsLength,
+                    value: cursor < elementsLength ? elements[cursor++] : undefined as any
                 }
-                else {
-                    return { done: true, value: undefined as any };
-                }
-            }
+                // if (cursor < elementsLength) {
+                //     return { done: false, value: elements[cursor++] };
+                // }
+                // else {
+                //     return { done: true, value: undefined as any };
+                // }
+            }.bind(this)
         };
     }
 }

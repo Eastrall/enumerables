@@ -12,7 +12,7 @@ describe('Linq', () => {
         });
     
         it('should apply a filter with multiple parameter predicate.', () => {
-            const elements: Array<number> = Linq.where(array, (item: number, index: number) => item > 3 && index % 2 == 0);
+            const elements: Array<number> = Linq.where(array, (item: number, index: number) => item > 3 && index % 2 === 0);
     
             expect(elements).toBeTruthy();
             expect(elements.length).toEqual(1);

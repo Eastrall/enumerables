@@ -28,7 +28,7 @@ export function single<T>(source: Array<T>, predicate?: Func<T, boolean>): T {
 
     const sourceArrayLength: number = source.length;
 
-    if (sourceArrayLength == 0) {
+    if (sourceArrayLength === 0) {
         throw new Error('source is empty.');
     }
     
