@@ -15,91 +15,142 @@ export class List<T> implements Collection<T>, Enumerable<T> {
         }
     }
 
-    /* @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public add(item: T): void {
         this.elements.push(item);
     }
 
-    /* @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public count(): number;
+    /**
+     * @inheritdoc 
+     */
     public count(predicate: Func<T, boolean>): number;
     public count(predicate?: Func<T, boolean>): number {
         return predicate ? Linq.count(this.elements, predicate) : Linq.count(this.elements);
     }
 
-    /* @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public elementAt(index: number): T {
         return Linq.elementAt(this.elements, index);
     }
 
-    /* @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public elementAtOrDefault(index: number): T | undefined {
         return Linq.elementAtOrDefault(this.elements, index);
     }
 
-    /* @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public first(): T;
+    /**
+     * @inheritdoc 
+     */
     public first(predicate: Func<T, boolean>): T;
     public first(predicate?: Func<T, boolean>): T {
         return predicate ? Linq.first(this.elements, predicate) : Linq.first(this.elements);
     }
 
-    /* @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public firstOrDefault(): T | undefined;
+    /**
+     * @inheritdoc 
+     */
     public firstOrDefault(predicate: Func<T, boolean>): T | undefined;
     public firstOrDefault(predicate?: Func<T, boolean>): T | undefined {
         return predicate ? Linq.firstOrDefault(this.elements, predicate) : Linq.firstOrDefault(this.elements);
     }
 
-    /* @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public last(): T;
+    /**
+     * @inheritdoc 
+     */
     public last(predicate: Func<T, boolean>): T;
     public last(predicate?: Func<T, boolean>): T {
         return predicate ? Linq.last(this.elements, predicate) : Linq.last(this.elements);
     }
 
-    /* @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public lastOrDefault(): T | undefined
+    /**
+     * @inheritdoc 
+     */
     public lastOrDefault(predicate: Func<T, boolean>): T | undefined;
     public lastOrDefault(predicate?: Func<T, boolean>): T | undefined {
         return predicate ? Linq.lastOrDefault(this.elements, predicate) : Linq.lastOrDefault(this.elements);
     }
 
-    /* @inheritdoc */
-    // public select<TResult>(selector: Func<T, TResult>): Enumerable<TResult>;
-    // public select<TResult>(selector: Func2<T, number, TResult>): Enumerable<TResult>;
+    /**
+     * @inheritdoc 
+     */
+    public select<TResult>(selector: Func<T, TResult>): Enumerable<TResult>;
+    /**
+     * @inheritdoc 
+     */
+    public select<TResult>(selector: Func2<T, number, TResult>): Enumerable<TResult>;
     public select<TResult>(selector: Func<T, TResult> | Func2<T, number, TResult>): Enumerable<TResult> {
         return new List<TResult>(Linq.select<T, TResult>(this.elements, selector));
     }
 
-    /* @inheritdoc */
-    // public where(predicate: Func<T, boolean>): Enumerable<T>;
-    // public where(predicate: Func2<T, number, boolean>): Enumerable<T>;
+    /**
+     * @inheritdoc 
+     */
+    public where(predicate: Func<T, boolean>): Enumerable<T>;
+    /**
+     * @inheritdoc 
+     */
+    public where(predicate: Func2<T, number, boolean>): Enumerable<T>;
     public where(predicate: Func<T, boolean> | Func2<T, number, boolean>): Enumerable<T> {
         return new List<T>(Linq.where(this.elements, predicate));
     }
 
-    /* @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public take(count: number): Enumerable<T> {
         return new List<T>(Linq.take(this.elements, count));
     }
 
-    /* @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public takeLast(count: number): Enumerable<T> {
         return new List<T>(Linq.takeLast(this.elements, count));
     }
 
-    /* @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public clear(): void {
         this.elements = [];
     }
 
-    /* @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public contains(item: T): boolean {
         return this.indexOf(item) !== -1;
     }
 
-    /* @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public indexOf(item: T): number {
         if (item) {
             const length: number = this.elements.length;
@@ -114,12 +165,16 @@ export class List<T> implements Collection<T>, Enumerable<T> {
         return -1;
     }
 
-    /* @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public insert(index: number, item: T): void {
         this.elements.splice(index, 0, item);
     }
 
-    /* @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public remove(item: T): boolean {
         const index: number = this.indexOf(item);
 
@@ -132,7 +187,9 @@ export class List<T> implements Collection<T>, Enumerable<T> {
         return true;
     }
 
-    /* @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public removeAt(index: number): void {
         if (index < 0 || index > this.elements.length) {
             throw new Error('index was out of bound.');
@@ -141,7 +198,9 @@ export class List<T> implements Collection<T>, Enumerable<T> {
         this.elements.splice(index, 1);
     }
 
-    /* @inheritdoc */
+    /**
+     * @inheritdoc 
+     */
     public toArray(): Array<T> {
         return new Array<T>(...this.elements);
     }
@@ -160,12 +219,6 @@ export class List<T> implements Collection<T>, Enumerable<T> {
                     done: cursor < elementsLength,
                     value: cursor < elementsLength ? elements[cursor++] : undefined as any
                 }
-                // if (cursor < elementsLength) {
-                //     return { done: false, value: elements[cursor++] };
-                // }
-                // else {
-                //     return { done: true, value: undefined as any };
-                // }
             }.bind(this)
         };
     }
