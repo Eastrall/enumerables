@@ -7,6 +7,7 @@ export * from './first';
 export * from './last';
 export * from './max';
 export * from './min';
+export * from './order-by';
 export * from './select';
 export * from './single';
 export * from './sum';
