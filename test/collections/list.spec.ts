@@ -38,6 +38,8 @@ describe('List', () => {
         for (const item of list) {
             expect(array[i++]).toEqual(item);
         }
+
+        expect(i).toEqual(list.count());
     });
 
     it('should add a new item.', () => {

@@ -211,15 +211,17 @@ export class List<T> implements Collection<T>, Enumerable<T> {
     public [Symbol.iterator](): Iterator<T> {
         let cursor: number = 0;
         const elements = this.elements;
-        const elementsLength = this.elementAt.length;
+        const elementsLength = elements.length;
 
         return {
-            next: function() {
-                return {
-                    done: cursor < elementsLength,
-                    value: cursor < elementsLength ? elements[cursor++] : undefined as any
+            next(): IteratorResult<T> {
+                if (cursor < elementsLength) {
+                    return { done: false, value: elements[cursor++] };
                 }
-            }.bind(this)
+                else {
+                    return { done: true, value: undefined as any };
+                }
+            }
         };
     }
 }
