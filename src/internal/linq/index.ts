@@ -11,6 +11,7 @@ export * from './order-by';
 export * from './reverse';
 export * from './select';
 export * from './single';
+export * from './skip';
 export * from './sum';
 export * from './take';
 export * from './where';
