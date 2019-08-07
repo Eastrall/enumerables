@@ -1,4 +1,4 @@
-import { Func, Func2 } from '../types';
+import { Func, Func2 } from '@lib/internal/types';
 
 /**
  * Filters a sequence of values based on a predicate.

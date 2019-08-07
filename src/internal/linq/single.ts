@@ -1,4 +1,4 @@
-import { Func } from "../types";
+import { Func } from "@lib/internal/types";
 
 /**
  * Returns the only element of a sequence, and throws an exception if there is not exactly one element in the sequence.

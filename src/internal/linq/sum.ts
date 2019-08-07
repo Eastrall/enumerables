@@ -1,4 +1,4 @@
-import { Func } from '../types';
+import { Func } from '@lib/internal/types';
 
 /**
  * Computes the sum of the sequence of `number` values that are obtained by invoking a transform function on each element of the input sequence.

@@ -1,4 +1,4 @@
-import { Func, Func2 } from '../types';
+import { Func, Func2 } from '@lib/internal/types';
 
 /**
  * Projects each element of a sequence into a new form.

@@ -1,4 +1,4 @@
-import { Func } from '../types';
+import { Func } from '@lib/internal/types';
 
 /**
  * Determines whether all elements of a sequence satisfy a condition.

@@ -46,6 +46,9 @@
     "transform": {
       ".(ts|tsx)": "ts-jest"
     },
+    "moduleNameMapper": {
+      "@lib/(.*)": "<rootDir>/src/$1"
+    },
     "testEnvironment": "node",
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
     "moduleFileExtensions": [

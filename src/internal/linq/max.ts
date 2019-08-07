@@ -1,4 +1,4 @@
-import { Func } from "../types";
+import { Func } from "@lib/internal/types";
 
 /**
  * Invokes a transform function on each element of a generic sequence and returns the maximum resulting value.

@@ -1,4 +1,4 @@
-import { List } from '../../src/enumerables';
+import { List } from '../../src/collections/list';
 
 describe('List', () => {
     function generateArrayOfNumbers(numberOfElements: number): Array<number> {

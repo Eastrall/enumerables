@@ -1,4 +1,4 @@
-import { Func } from "../types";
+import { Func } from "@lib/internal/types";
 
 /**
  * Returns the last element of a sequence.

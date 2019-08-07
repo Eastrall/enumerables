@@ -1,4 +1,4 @@
-import { Func } from '../types';
+import { Func } from '@lib/internal/types';
 
 /**
  * Returns a number that represents how many elements in the specified sequence satisfy a condition.

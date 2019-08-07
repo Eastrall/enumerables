@@ -1,4 +1,4 @@
-import { Func, Func2 } from "../internal/types";
+import { Func, Func2 } from "@lib/internal/types";
 
 export interface Enumerable<T> extends Iterable<T> {
     /**
