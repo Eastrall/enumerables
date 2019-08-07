@@ -8,6 +8,7 @@ export * from './last';
 export * from './max';
 export * from './min';
 export * from './order-by';
+export * from './reverse';
 export * from './select';
 export * from './single';
 export * from './sum';
