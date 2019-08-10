@@ -173,7 +173,7 @@ export class List<T> implements Collection<T>, Enumerable<T> {
     /**
      * @inheritdoc 
      */
-    public orderByDescending<TKey>(keySelector: Func<T, TKey>): Enumerable<TSource> {
+    public orderByDescending<TKey>(keySelector: Func<T, TKey>): Enumerable<T> {
         return new List<T>(Linq.orderByDescending(this.elements, keySelector));
     }
 

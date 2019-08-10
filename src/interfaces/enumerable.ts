@@ -171,7 +171,7 @@ export interface Enumerable<T> extends Iterable<T> {
     /**
      * Sorts the elements of a sequence in ascending order according to a key.
      * @param keySelector A function to extract a key from an element.
-     * @returns An `Enumerable<TSource>` whose elements are sorted according to a key.
+     * @returns An `Enumerable<T>` whose elements are sorted according to a key.
      * @throws {Error} `source` or `keySelector` is `undefined`.
      */
     orderBy<TKey>(keySelector: Func<T, TKey>): Enumerable<T>;
@@ -179,9 +179,9 @@ export interface Enumerable<T> extends Iterable<T> {
     /**
      * Sorts the elements of a sequence in descending order by using a specified comparer.
      * @param keySelector A function to extract a key from an element.
-     * @returns An `Enumerable<TSource>` whose elements are sorted in descending order according to a key.
+     * @returns An `Enumerable<T>` whose elements are sorted in descending order according to a key.
      */
-    orderByDescending<TKey>(keySelector: Func<T, TKey>): Enumerable<TSource>;
+    orderByDescending<TKey>(keySelector: Func<T, TKey>): Enumerable<T>;
 
     /**
      * Projects each element of a sequence into a new form.
