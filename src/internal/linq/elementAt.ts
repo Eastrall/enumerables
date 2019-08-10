@@ -23,7 +23,7 @@ export function elementAt<T>(source: Array<T>, index: number): T {
  * @param source Native JavaScript array to return an element from.
  * @param index Zero-based index of the element to retrieve.
  * @returns `undefined` if the index is outside the bounds of the source sequence; otherwise, the element at the specified position in the source sequence.
- * @throws If the input `source` is `undefined`.
+ * @throws {Error} `source` is `undefined`.
  */
 export function elementAtOrDefault<T>(source: Array<T>, index: number): T | undefined {
     if (!source) {

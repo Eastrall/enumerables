@@ -5,8 +5,8 @@ import { Func } from '@lib/internal/types';
  * @param source Native JavaScript array.
  * @param predicate A function to test each element for a condition.
  * @returns `true` if every element of the source sequence passes the test in the specified predicate, or if the sequence is empty; otherwise, `false`.
- * @throws If the input `source` is `undefined`.
- * @throws If no element satisfies the condition in `predicate`.
+ * @throws {Error} `source` is `undefined`.
+ * @throws {Error} no element satisfies the condition in `predicate`.
  */
 export function all<T>(source: Array<T>, predicate: Func<T, boolean>): boolean {
     if (!source) {

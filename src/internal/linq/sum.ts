@@ -5,8 +5,8 @@ import { Func } from '@lib/internal/types';
  * @param source Native JavaScript array.
  * @param selector A transform function to apply to each element.
  * @returns The sum of the projected values.
- * @throws If the `source` is `undefined`.
- * @throws If the `selector` is `undefined`.
+ * @throws {Error} `source` is `undefined`.
+ * @throws {Error} `selector` is `undefined`.
  */
 export function sum<T>(source: Array<T>, selector: Func<T, number>): number {
     if (!source) {

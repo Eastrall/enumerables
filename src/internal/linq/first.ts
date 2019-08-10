@@ -4,8 +4,8 @@ import { Func } from '@lib/internal/types';
  * Returns the first element of a sequence.
  * @param source Native JavaScript array.
  * @returns The first element in the specified sequence.
- * @throws If the input `source` is `undefined`.
- * @throws If the input `source` sequence is empty.
+ * @throws {Error} `source` is `undefined`.
+ * @throws {Error} `source` sequence is empty.
  */
 export function first<T>(source: Array<T>): T
 
@@ -14,9 +14,9 @@ export function first<T>(source: Array<T>): T
  * @param source Native JavaScript array.
  * @param predicate A function to test each element for a condition.
  * @returns The first element in the sequence that passes the test in the specified predicate function.
- * @throws If the input `source` is `undefined`.
- * @throws If the input `source` sequence is empty.
- * @throws If no element satisfies the condition in `predicate`.
+ * @throws {Error} `source` is `undefined`.
+ * @throws {Error} `source` sequence is empty.
+ * @throws {Error} no element satisfies the condition in `predicate`.
  */
 export function first<T>(source: Array<T>, predicate: Func<T, boolean>): T;
 
@@ -42,7 +42,7 @@ export function first<T>(source: Array<T>, predicate?: Func<T, boolean>): T {
  * Returns the first element of a sequence, or a default value if the sequence contains no elements.
  * @param source Native JavaScript array.
  * @returns `undefined` if `source` is empty; otherwise, the first element in `source`.
- * @throws If the input `source` is `undefined`.
+ * @throws {Error} `source` is `undefined`.
  */
 export function firstOrDefault<T>(source: Array<T>): T | undefined;
 
@@ -51,7 +51,7 @@ export function firstOrDefault<T>(source: Array<T>): T | undefined;
  * @param source Native JavaScript array.
  * @param predicate A function to test each element for a condition.
  * @returns `undefined` if `source` is empty or if no element passes the test specified by `predicate`; otherwise, the first element in `source` that passes the test specified by `predicate`.
- * @throws If the input `source` is `undefined`.
+ * @throws {Error} `source` is `undefined`.
  */
 export function firstOrDefault<T>(source: Array<T>, predicate: Func<T, boolean>): T | undefined;
 

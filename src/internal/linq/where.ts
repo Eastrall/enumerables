@@ -15,8 +15,8 @@ export function where<T>(source: Array<T>, predicate: Func<T, boolean>): Array<T
  * @param source Native JavaScript array to filter.
  * @param predicate A function to test each source element for a condition; the second parameter of the function represents the index of the source element.
  * @returns An Array<T> that contains elements from the input sequence that satisfy the condition.
- * @throws If the input `source` is `undefined`.
- * @throws If the input `predicate` is `undefined`.
+ * @throws {Error} `source` is `undefined`.
+ * @throws {Error} `predicate` is `undefined`.
  */
 export function where<T>(source: Array<T>, predicate: Func2<T, number, boolean>): Array<T>;
 

@@ -5,8 +5,8 @@ import { Func } from "@lib/internal/types";
  * @param source Native JavaScript array.
  * @param selector A transform function to apply to each element.
  * @returns The minimum value in the sequence.
- * @throws If the input `source` is `undefined`.
- * @throws If the input `selector` is `undefined`.
+ * @throws {Error} `source` is `undefined`.
+ * @throws {Error} `selector` is `undefined`.
  */
 export function min<T>(source: Array<T>, selector: Func<T, number>): number {
     if (!source) {

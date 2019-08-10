@@ -4,9 +4,9 @@ import { Func } from "@lib/internal/types";
  * Returns the only element of a sequence, and throws an exception if there is not exactly one element in the sequence.
  * @param source Native JavaScript array.
  * @returns The single element of the input sequence.
- * @throws If the input `source` is `undefined`.
- * @throws If the input sequence is empty.
- * @throws If the input sequeence contains more than one element.
+ * @throws {Error} `source` is `undefined`.
+ * @throws {Error} input sequence is empty.
+ * @throws {Error} input sequence contains more than one element.
  */
 export function single<T>(source: Array<T>): T;
 
@@ -15,10 +15,10 @@ export function single<T>(source: Array<T>): T;
  * @param source Native JavaScript array.
  * @param predicate A function to test an element for a condition.
  * @returns The single element of the input sequence that satisfies a condition.
- * @throws If the input `source` is `undefined`.
- * @throws If the input sequence is empty.
- * @throws If more than one element satisfies the condition in `predicate`.
- * @throws If no element satisfies the condition in `predicate`.
+ * @throws {Error} `source` is `undefined`.
+ * @throws {Error} sequence is empty.
+ * @throws {Error} more than one element satisfies the condition in `predicate`.
+ * @throws {Error} no element satisfies the condition in `predicate`.
  */
 export function single<T>(source: Array<T>, predicate: Func<T, boolean>): T;
 export function single<T>(source: Array<T>, predicate?: Func<T, boolean>): T {
@@ -62,8 +62,8 @@ export function single<T>(source: Array<T>, predicate?: Func<T, boolean>): T {
  * Returns the only element of a sequence, or an `undefined` if the sequence is empty; this method throws an exception if there is more than one element in the sequence.
  * @param source Native JavaScript array.
  * @returns The single element of the input sequence, or `undefined` if the sequence contains no elements.
- * @throws If the input `source` is `undefined`.
- * @throws If the input sequence contains more than one element.
+ * @throws {Error} `source` is `undefined`.
+ * @throws {Error} sequence contains more than one element.
  */
 export function singleOrDefault<T>(source: Array<T>): T | undefined;
 
@@ -72,8 +72,8 @@ export function singleOrDefault<T>(source: Array<T>): T | undefined;
  * @param source Native JavaSript array.
  * @param predicate A function to test an element for a condition.
  * @returns The single element of the input sequence that satisfies the condition, or `undefined` if no such element is found.
- * @throws If the input `source` is `undefined`.
- * @throws If more than one element satisfies the condition in `predicate`.
+ * @throws {Error} `source` is `undefined`.
+ * @throws {Error} more than one element satisfies the condition in `predicate`.
  * 
  */
 export function singleOrDefault<T>(source: Array<T>, predicate: Func<T, boolean>): T | undefined;
@@ -84,7 +84,7 @@ export function singleOrDefault<T>(source: Array<T>, predicate?: Func<T, boolean
 
     const sourceArrayLength: number = source.length;
     
-    if (sourceArrayLength == 0) {
+    if (sourceArrayLength === 0) {
         return undefined;
     }
 

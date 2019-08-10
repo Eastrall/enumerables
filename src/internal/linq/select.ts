@@ -5,8 +5,8 @@ import { Func, Func2 } from '@lib/internal/types';
  * @param source Native JavaScript array.
  * @param selector A transform function to apply to each element.
  * @returns An `Array<T>` whose elements are the result of invoking the transform function on each element of `source`.
- * @throws If the input `source` is `undefined`.
- * @throws If the input `selector` is `undefined`.
+ * @throws {Error} `source` is `undefined`.
+ * @throws {Error} `selector` is `undefined`.
  */
 export function select<TSource, TResult>(source: Array<TSource>, selector: Func<TSource, TResult>): Array<TResult>
 
@@ -15,8 +15,8 @@ export function select<TSource, TResult>(source: Array<TSource>, selector: Func<
  * @param source Native JavaScript array.
  * @param selector A transform function to apply to each source element; the second parameter of the function represents the index of the source element.
  * @returns An `Array<T>` whose elements are the result of invoking the transform function on each element of `source`.
- * @throws If the input `source` is `undefined`.
- * @throws If the input `selector` is `undefined`.
+ * @throws {Error} `source` is `undefined`.
+ * @throws {Error} `selector` is `undefined`.
  */
 export function select<TSource, TResult>(source: Array<TSource>, selector: Func2<TSource, number, TResult>): Array<TResult> 
 

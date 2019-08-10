@@ -42,7 +42,7 @@ export function last<T>(source: Array<T>, predicate?: Func<T, boolean>): T {
  * Returns the last element of a sequence, or a default value if no element is found.
  * @param source Native JavaScript array.
  * @returns `undefined` if the `source` sequence is empty; otherwise, the last element in the `Array<T>`.
- * @throws If the input `source` is `undefined`.
+ * @throws {Error}`source` is `undefined`.
  */
 export function lastOrDefault<T>(source: Array<T>): T | undefined;
 
@@ -51,7 +51,7 @@ export function lastOrDefault<T>(source: Array<T>): T | undefined;
  * @param source Native JavaScript array.
  * @param predicate A function to test each element for a condition.
  * @returns `undefined` if the sequence is empty or if no elements pass the test in the predicate function; otherwise, the last element that passes the test in the predicate function.
- * @throws If the input `source` is `undefined`.
+ * @throws {Error} `source` is `undefined`.
  */
 export function lastOrDefault<T>(source: Array<T>, predicate: Func<T, boolean>): T | undefined;
 

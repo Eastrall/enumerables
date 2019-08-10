@@ -5,7 +5,7 @@ import { Func } from '@lib/internal/types';
  * @param source Native JavaScript array that contains elements to be tested and counted.
  * @param predicate A function to test each element for a condition.
  * @returns The number of elements in the input sequence.
- * @throws If the input `source` is `undefined`.
+ * @throws {Error} `source` is `undefined`.
  */
 export function count<T>(source: Array<T>, predicate?: Func<T, boolean>): number {
     if (!source) {

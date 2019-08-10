@@ -6,7 +6,6 @@
 
 `enumerables` is a TypeScript implementation of .NET collections and LINQ.
 
-
 ## Available collections
 
 - List

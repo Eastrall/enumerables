@@ -3,9 +3,21 @@ import { Collection } from "@lib/interfaces/collection";
 import { Func, Func2 } from '@lib/internal/types';
 import * as Linq from '@lib/internal/linq';
 
+/**
+ * Represents a strongly typed list of objects.
+ */
 export class List<T> implements Collection<T>, Enumerable<T> {
     protected elements: Array<T>;
 
+    /**
+     * Creates and initializes a new empty `List<T>` instance. 
+     */
+    constructor()
+    /**
+     * Creates and initializes a new `List<T>` that contains the elements copied from the specified `Array<T>`.
+     * @param array The array whose elements are copied to the new list.
+     */
+    constructor(array: Array<T>)
     constructor(array?: Array<T>) {
         if (array) {
             this.elements = new Array<T>(...array);
@@ -20,6 +32,47 @@ export class List<T> implements Collection<T>, Enumerable<T> {
      */
     public add(item: T): void {
         this.elements.push(item);
+    }
+
+    /**
+     * @inheritdoc 
+     */
+    public aggregate(func: Func2<T, T, T>): T;
+    /**
+     * @inheritdoc 
+     */
+    public aggregate<TAccumulate>(seed: TAccumulate, func: Func2<TAccumulate, T, TAccumulate>): TAccumulate;
+    /**
+     * @inheritdoc 
+     */
+    public aggregate<TAccumulate, TResult>(seed: TAccumulate, func: Func2<TAccumulate, T, TAccumulate>, resultSelector: Func<TAccumulate, TResult>): TResult;
+    public aggregate<TAccumulate, TResult>(funcOrSeed: Func2<T, T, T> | TAccumulate, func?: Func2<TAccumulate, T, TAccumulate>, resultSelector?: Func<TAccumulate, TResult>): T | TAccumulate | TResult {
+        if (typeof (funcOrSeed) === 'function' && !func) {
+            return Linq.aggregate<T>(this.elements, funcOrSeed as Func2<T, T, T>);
+        }
+        else {
+            // Workaround for union types: https://github.com/microsoft/TypeScript/issues/14107#issuecomment-483995795
+            return Linq.aggregate(this.elements, funcOrSeed as TAccumulate, func as any, resultSelector as any);
+        }
+    }
+
+    /**
+     * @inheritdoc 
+     */
+    public all(predicate: Func<T, boolean>): boolean {
+        return Linq.all(this.elements, predicate);
+    }
+
+    /**
+     * @inheritdoc 
+     */
+    public any(): boolean;
+    /**
+     * @inheritdoc 
+     */
+    public any(predicate: Func<T, boolean>): boolean;
+    public any(predicate?: Func<T, boolean>): boolean {
+        return predicate ? Linq.any(this.elements, predicate) : Linq.any(this.elements);
     }
 
     /**
@@ -94,6 +147,34 @@ export class List<T> implements Collection<T>, Enumerable<T> {
     public lastOrDefault(predicate: Func<T, boolean>): T | undefined;
     public lastOrDefault(predicate?: Func<T, boolean>): T | undefined {
         return predicate ? Linq.lastOrDefault(this.elements, predicate) : Linq.lastOrDefault(this.elements);
+    }
+
+    /**
+     * @inheritdoc 
+     */
+    public max(selector: Func<T, number>): number {
+        return Linq.max(this.elements, selector);
+    }
+
+    /**
+     * @inheritdoc 
+     */
+    public min(selector: Func<T, number>): number {
+        return Linq.min(this.elements, selector);
+    }
+
+    /**
+     * @inheritdoc 
+     */
+    public orderBy<TKey>(keySelector: Func<T, TKey>): Enumerable<T> {
+        return new List<T>(Linq.orderBy(this.elements, keySelector));
+    }
+    
+    /**
+     * @inheritdoc 
+     */
+    public orderByDescending<TKey>(keySelector: Func<T, TKey>): Enumerable<TSource> {
+        return new List<T>(Linq.orderByDescending(this.elements, keySelector));
     }
 
     /**
@@ -206,7 +287,7 @@ export class List<T> implements Collection<T>, Enumerable<T> {
     }
 
     /**
-     * Interates over the collection.
+     * Provides the mechanism to tnterate over the current collection.
      */
     public [Symbol.iterator](): Iterator<T> {
         let cursor: number = 0;
