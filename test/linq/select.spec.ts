@@ -16,7 +16,7 @@ describe('Linq', () => {
             expect(() => Linq.select([], undefined)).toThrow();
         });
     
-        it('should a simple array into a complex array.', () => {
+        it('should map a simple array into a complex array.', () => {
             const complexArray: Array<Person> = Linq.select(array, item => ({ name: 'Person name ' + item, age: item }));
     
             expect(complexArray).toBeTruthy();
