@@ -2,6 +2,7 @@ import { Enumerable } from '@lib/interfaces/enumerable';
 import { Collection } from "@lib/interfaces/collection";
 import { Func, Func2 } from '@lib/internal/types';
 import * as Linq from '@lib/internal/linq';
+import { Grouping } from '@lib/interfaces/grouping';
 
 /**
  * Represents a strongly typed list of objects.
@@ -52,7 +53,7 @@ export class List<T> implements Collection<T>, Enumerable<T> {
         }
         else {
             // Workaround for union types: https://github.com/microsoft/TypeScript/issues/14107#issuecomment-483995795
-            return Linq.aggregate(this.elements, funcOrSeed as TAccumulate, func as any, resultSelector as any);
+            return Linq.aggregate<T, TAccumulate, TResult>(this.elements, funcOrSeed as TAccumulate, func as any, resultSelector as any);
         }
     }
 
@@ -73,6 +74,13 @@ export class List<T> implements Collection<T>, Enumerable<T> {
     public any(predicate: Func<T, boolean>): boolean;
     public any(predicate?: Func<T, boolean>): boolean {
         return predicate ? Linq.any(this.elements, predicate) : Linq.any(this.elements);
+    }
+
+    /**
+     * @inheritdoc 
+     */
+    public append(element: T): Enumerable<T> {
+        return new List<T>(Linq.append(this.elements, element));
     }
 
     /**
@@ -123,6 +131,40 @@ export class List<T> implements Collection<T>, Enumerable<T> {
     public firstOrDefault(predicate: Func<T, boolean>): T | undefined;
     public firstOrDefault(predicate?: Func<T, boolean>): T | undefined {
         return predicate ? Linq.firstOrDefault(this.elements, predicate) : Linq.firstOrDefault(this.elements);
+    }
+
+    /**
+     * @inheritdoc 
+     */
+    public groupBy<TKey>(keySelector: Func<T, TKey>): Enumerable<Grouping<TKey, T>>;
+    /**
+     * @inheritdoc 
+     */
+    public groupBy<TKey, TElement>(keySelector: Func<T, TKey>, elementSelector: Func<T, TElement>): Enumerable<Grouping<TKey, TElement>>;
+    public groupBy<TKey, TElement>(keySelector: Func<T, TKey>, elementSelector?: Func<T, TElement>): Enumerable<Grouping<TKey, T | TElement>> {
+        if (!keySelector) {
+            throw new Error('keySelector is undefined.');
+        }
+
+        const result = Linq.aggregate(this.elements, new List<Grouping<TKey, T | TElement>>(), (groups: List<Grouping<TKey, T | TElement>>, next: T) => {
+            const key: TKey = keySelector(next);
+            const element: T | TElement = elementSelector ? elementSelector(next) : next;
+            const keyElements: Grouping<TKey, T | TElement> | undefined = groups.firstOrDefault(x => x.key === key);
+
+            if (!keyElements) {
+                groups.add({
+                    key: key,
+                    elements: new List<T | TElement>([element]),
+                });
+            }
+            else {
+                keyElements.elements = keyElements.elements.append(element);
+            }
+
+            return groups;
+        });
+
+        return result;
     }
 
     /**
@@ -304,5 +346,12 @@ export class List<T> implements Collection<T>, Enumerable<T> {
                 }
             }
         };
+    }
+
+    /**
+     * Display the content of the list.
+     */
+    public toString(): string {
+        return `${this.elements}`;
     }
 }

@@ -1,4 +1,5 @@
 import { Func, Func2 } from "@lib/internal/types";
+import { Grouping } from "./grouping";
 
 export interface Enumerable<T> extends Iterable<T> {
     /**
@@ -51,6 +52,13 @@ export interface Enumerable<T> extends Iterable<T> {
      * @throws {Error} `source` is `undefined`.
      */
     any(predicate: Func<T, boolean>): boolean;
+
+    /**
+     * Appends a value to the end of the sequence.
+     * @param element The value to append to `source`.
+     * @returns A new sequence that ends with `element`.
+     */
+    append(element: T): Enumerable<T>;
 
     /**
      * Returns a number that represents how many elements in the specified sequence.
@@ -116,6 +124,24 @@ export interface Enumerable<T> extends Iterable<T> {
      * @throws {Error} `source` is `undefined`.
      */
     firstOrDefault(predicate: Func<T, boolean>): T | undefined;
+
+    /**
+     * Groups the elements of a sequence according to a specified key selector function.
+     * @param keySelector A function to extract the key for each element.
+     * @returns An `Enumerable<Grouping<TKey, TSource>>` where each `Grouping<TKey, TSource>` object contains a sequence of objects and a key.
+     * @throws {Error} `keySelector` is `undefined`.
+     */
+    groupBy<TKey>(keySelector: Func<T, TKey>): Enumerable<Grouping<TKey, T>>;
+
+    /**
+     * 
+     * @param source A native JavaScript `Array<T>` whose elements to group.
+     * @param keySelector A function to extract the key for each element.
+     * @param elementSelector A function to map each source element to an element in the `Grouping<TKey, TElement>`.
+     * @returns An `Enumerable<Grouping<TKey, TElement>>` where each `Grouping<TKey, TElement>` object contains a collection of objects of type `TElement` and a key.
+     * @throws {Error} `keySelector` is `undefined`.
+     */
+    groupBy<TKey, TElement>(keySelector: Func<T, TKey>, elementSelector: Func<T, TElement>): Enumerable<Grouping<TKey, TElement>>;
 
     /**
      * Returns the last element of a sequence.
