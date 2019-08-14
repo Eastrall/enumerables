@@ -82,6 +82,15 @@ export class List<T> implements Collection<T>, Enumerable<T> {
     public append(element: T): Enumerable<T> {
         return new List<T>(Linq.append(this.elements, element));
     }
+    
+    /**
+     * @inheritdoc 
+     */
+    public concat(elementsToConcat: Enumerable<T> | Array<T>): Enumerable<T> {
+        const array: Array<T> = Linq.concat(this.elements, elementsToConcat instanceof Array ? elementsToConcat : elementsToConcat.toArray());
+        
+        return new List<T>(array);
+    }
 
     /**
      * @inheritdoc 
@@ -329,6 +338,13 @@ export class List<T> implements Collection<T>, Enumerable<T> {
     }
 
     /**
+     * @inheritdoc 
+     */
+    public toString(): string {
+        return `${this.elements}`;
+    }
+
+    /**
      * Provides the mechanism to tnterate over the current collection.
      */
     public [Symbol.iterator](): Iterator<T> {
@@ -346,12 +362,5 @@ export class List<T> implements Collection<T>, Enumerable<T> {
                 }
             }
         };
-    }
-
-    /**
-     * Display the content of the list.
-     */
-    public toString(): string {
-        return `${this.elements}`;
     }
 }

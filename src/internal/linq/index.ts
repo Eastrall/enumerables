@@ -2,6 +2,7 @@ export * from './aggregate';
 export * from './all';
 export * from './any';
 export * from './append';
+export * from './concat';
 export * from './count';
 export * from './elementAt';
 export * from './first';

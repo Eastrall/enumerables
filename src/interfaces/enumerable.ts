@@ -61,6 +61,14 @@ export interface Enumerable<T> extends Iterable<T> {
     append(element: T): Enumerable<T>;
 
     /**
+     * Concatenates two sequences.
+     * @param elementsToConcat An `Enumerable<T>` or a native JavaScript `Array<TSource>` to concat.
+     * @returns An `Array<TSource>` that contains the concatenated elements of the two input sequences.
+     * @throws {Error} `elementsToConcat` is `undefined`.
+     */
+    concat(elementsToConcat: Enumerable<T> | Array<T>): Enumerable<T>;
+
+    /**
      * Returns a number that represents how many elements in the specified sequence.
      * @returns The number of elements in the input sequence.
      * @throws {Error} `source` is `undefined`.
@@ -266,4 +274,9 @@ export interface Enumerable<T> extends Iterable<T> {
      * @returns An array that contains the elements from the input sequence. 
      */
     toArray(): Array<T>;
+
+    /**
+     * Display the content of the `Enumerable<T>`.
+     */
+    toString(): string;
 }

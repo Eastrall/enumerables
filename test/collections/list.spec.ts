@@ -1,9 +1,11 @@
 import { List, Enumerable } from '../../src/enumerables';
 import { Func2 } from '../../src/internal/types';
+import { Grouping } from '../../src/interfaces/grouping';
 
 interface Person {
     name: string;
     age: number;
+    country?: string;
 }
 
 describe('List', () => {
@@ -156,7 +158,6 @@ describe('List', () => {
         const list: List<Person> = new List<Person>(arrayOfPersons); 
 
         it('should return true if list contains elements.', () => {
-            expect(list.any()).toBeTruthy();
             expect(list.any()).toEqual(true);
         });
 
@@ -172,6 +173,37 @@ describe('List', () => {
 
         it('should return false if list doesn\'t elements matching a predicate function.', () => {
             expect(list.any(x => x.age === 150)).toEqual(false);
+        });
+    });
+
+    describe('concat', () => {
+        const list: List<number> = new List<number>([1, 2, 3, 4, 5]);
+
+        it('should throw an error is the elements to concat are undefined.', () => {
+            expect(() => list.concat(undefined)).toThrow();
+        });
+
+        it('should concat a list with another list', () => {
+            const listToConcat: List<number> = new List<number>([6, 7, 8]);
+            const concatList: List<number> = list.concat(listToConcat);
+
+            expect(concatList).toBeTruthy();
+            expect(concatList.count()).toEqual(8);
+
+            for (let i = 0; i < concatList.count(); ++i) {
+                expect(concatList.elementAt(i)).toEqual(i + 1);
+            }
+        });
+
+        it('should concat a list with another array.', () => {
+            const concatList: List<number> = list.concat([6, 7, 8]);
+
+            expect(concatList).toBeTruthy();
+            expect(concatList.count()).toEqual(8);
+
+            for (let i = 0; i < concatList.count(); ++i) {
+                expect(concatList.elementAt(i)).toEqual(i + 1);
+            }
         });
     });
 
@@ -267,6 +299,45 @@ describe('List', () => {
 
             expect(list).toBeTruthy();
             expect(list.firstOrDefault(x => x > 20)).not.toBeTruthy();
+        });
+    });
+
+    describe('groupBy', () => {
+        const arrayOfPersons: Array<Person> = [
+            { name: 'John Doe', age: 42, country: 'USA' },
+            { name: 'Jane Doe', age: 31, country: 'USA' },
+            { name: 'Alberto Espinoza', age: 39, country: 'Mexico' },
+            { name: 'Jean Dupont', age: 42, country: 'France' },
+            { name: 'Julia Gomez', age: 43, country: 'Mexico' }
+        ];
+        const listOfPersons: List<Person> = new List<Person>(arrayOfPersons);
+
+        it('should throw an error if the key selector is undefined.', () => {
+            expect(() => listOfPersons.groupBy(undefined)).toThrow();
+        });
+
+        it('should group an array by a numeric key.', () => {
+            const groupedArray: Enumerable<Grouping<number, Person>> = listOfPersons.groupBy((x: Person) => x.age);
+
+            expect(groupedArray).toBeTruthy();
+            expect(groupedArray.count()).toEqual(4);
+
+            expect(groupedArray.elementAt(0).key).toEqual(42);
+            expect(groupedArray.elementAt(0).elements.count()).toEqual(2);
+            expect(groupedArray.elementAt(0).elements.elementAt(0)).toEqual(arrayOfPersons[0]);
+            expect(groupedArray.elementAt(0).elements.elementAt(1)).toEqual(arrayOfPersons[3]);
+
+            expect(groupedArray.elementAt(1).key).toEqual(31);
+            expect(groupedArray.elementAt(1).elements.count()).toEqual(1);
+            expect(groupedArray.elementAt(1).elements.elementAt(0)).toEqual(arrayOfPersons[1]);
+
+            expect(groupedArray.elementAt(2).key).toEqual(39);
+            expect(groupedArray.elementAt(2).elements.count()).toEqual(1);
+            expect(groupedArray.elementAt(2).elements.elementAt(0)).toEqual(arrayOfPersons[2]);
+            
+            expect(groupedArray.elementAt(3).key).toEqual(43);
+            expect(groupedArray.elementAt(3).elements.count()).toEqual(1);
+            expect(groupedArray.elementAt(3).elements.elementAt(0)).toEqual(arrayOfPersons[4]);
         });
     });
 
@@ -606,6 +677,14 @@ describe('List', () => {
 
             expect(array).toBeInstanceOf(Array);
             expect(array.length).toEqual(list.count());
+        });
+    });
+
+    describe('toString', () => {
+        it('should return a string representation of a list.', () => {
+            const list: List<number> = new List<number>([1, 2, 3, 4, 5]);
+
+            expect(list.toString()).toEqual('1,2,3,4,5');
         });
     });
 });
