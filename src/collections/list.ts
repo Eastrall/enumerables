@@ -341,7 +341,7 @@ export class List<T> implements Collection<T>, Enumerable<T> {
      * @inheritdoc 
      */
     public toString(): string {
-        return `${this.elements}`;
+        return `[ ${this.elements.join(', ')} ]`;
     }
 
     /**

@@ -339,6 +339,27 @@ describe('List', () => {
             expect(groupedArray.elementAt(3).elements.count()).toEqual(1);
             expect(groupedArray.elementAt(3).elements.elementAt(0)).toEqual(arrayOfPersons[4]);
         });
+
+        it('should group an array by a string key and project into another format.', () => {
+            const groupedArray: Enumerable<Grouping<number, Person>> = listOfPersons.groupBy((x: Person) => x.country, (x: Person) => x.name.toUpperCase());
+
+            expect(groupedArray).toBeTruthy();
+            expect(groupedArray.count()).toEqual(3);
+
+            expect(groupedArray.elementAt(0).key).toEqual('USA');
+            expect(groupedArray.elementAt(0).elements.count()).toEqual(2);
+            expect(groupedArray.elementAt(0).elements.elementAt(0)).toEqual(arrayOfPersons[0].name.toUpperCase());
+            expect(groupedArray.elementAt(0).elements.elementAt(1)).toEqual(arrayOfPersons[1].name.toUpperCase());
+
+            expect(groupedArray.elementAt(1).key).toEqual('Mexico');
+            expect(groupedArray.elementAt(1).elements.count()).toEqual(2);
+            expect(groupedArray.elementAt(1).elements.elementAt(0)).toEqual(arrayOfPersons[2].name.toUpperCase());
+            expect(groupedArray.elementAt(1).elements.elementAt(1)).toEqual(arrayOfPersons[4].name.toUpperCase());
+
+            expect(groupedArray.elementAt(2).key).toEqual('France');
+            expect(groupedArray.elementAt(2).elements.count()).toEqual(1);
+            expect(groupedArray.elementAt(2).elements.elementAt(0)).toEqual(arrayOfPersons[3].name.toUpperCase());
+        });
     });
 
     describe('last', () => {
@@ -684,7 +705,7 @@ describe('List', () => {
         it('should return a string representation of a list.', () => {
             const list: List<number> = new List<number>([1, 2, 3, 4, 5]);
 
-            expect(list.toString()).toEqual('1,2,3,4,5');
+            expect(list.toString()).toEqual('[ 1, 2, 3, 4, 5 ]');
         });
     });
 });
