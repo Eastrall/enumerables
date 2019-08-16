@@ -69,19 +69,18 @@
 				</a>
 				<p><a href="https://travis-ci.org/Eastrall/enumerables"><img src="https://travis-ci.org/Eastrall/enumerables.svg?branch=master" alt="Build Status"></a>
 					<a href="https://www.codacy.com/app/Eastrall/enumerables?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Eastrall/enumerables&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/da86db9f744e43028b549428c4ebedf3" alt="Codacy Badge"></a>
+					<a href="https://github.com/Eastrall/enumerables/blob/master/LICENSE"><img src="https://img.shields.io/badge/licence-MIT-blue" alt="licence"></a>
 				<a href="https://codecov.io/gh/Eastrall/enumerables"><img src="https://codecov.io/gh/Eastrall/enumerables/branch/master/graph/badge.svg" alt="codecov"></a></p>
-				<p><code>enumerables</code> is a TypeScript implementation of .NET collections and LINQ.</p>
-				<a href="#available-collections" id="available-collections" style="color: inherit; text-decoration: none;">
-					<h2>Available collections</h2>
+				<p><code>enumerables</code> is a TypeScript implementation of .NET collections and LINQ with <strong>no external dependencies</strong>.</p>
+				<p>This library provides collections such as <code>List&lt;T&gt;</code> and most of the LINQ methods, like <code>select</code>, <code>firstOrDefault</code>, <code>where</code>, <code>groupBy</code>, <code>orderBy</code> and much more.</p>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
 				</a>
-				<ul>
-					<li>List</li>
-				</ul>
-				<a href="#install" id="install" style="color: inherit; text-decoration: none;">
-					<h2>Install</h2>
+				<pre><code>$ npm <span class="hljs-keyword">install</span> enumerables</code></pre>
+				<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
+					<h2>Documentation</h2>
 				</a>
-				<p>No package yet.</p>
-				<pre><code>$&gt; npm <span class="hljs-selector-tag">i</span> ...</code></pre>
+				<p>You can find the documentation of the library here: <a href="https://eastrall.github.io/enumerables/">https://eastrall.github.io/enumerables/</a></p>
 				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
 					<h2>Usage</h2>
 				</a>
@@ -89,15 +88,17 @@
     firstName: <span class="hljs-built_in">string</span>;
     lastName: <span class="hljs-built_in">string</span>;
     age: <span class="hljs-built_in">number</span>;
+    country: <span class="hljs-built_in">string</span>;
 }
 
 <span class="hljs-keyword">import</span> { List, Enumerable } <span class="hljs-keyword">from</span> <span class="hljs-string">'enumerables'</span>;
 
 <span class="hljs-keyword">const</span> list = <span class="hljs-keyword">new</span> List&lt;Person&gt;();
 
-list.add({ firstName: <span class="hljs-string">'John'</span>, lastName: <span class="hljs-string">'Doe'</span>, age: <span class="hljs-number">42</span>});
-list.add({ firstName: <span class="hljs-string">'Jane'</span>, lastName: <span class="hljs-string">'Doe'</span>, age: <span class="hljs-number">38</span>});
-list.add({ firstName: <span class="hljs-string">'James'</span>, lastName: <span class="hljs-string">'Smith'</span>, age: <span class="hljs-number">17</span>});
+list.add({ firstName: <span class="hljs-string">'John'</span>, lastName: <span class="hljs-string">'Doe'</span>, age: <span class="hljs-number">42</span>, country: <span class="hljs-string">'USA'</span> });
+list.add({ firstName: <span class="hljs-string">'Jane'</span>, lastName: <span class="hljs-string">'Doe'</span>, age: <span class="hljs-number">38</span>, country: <span class="hljs-string">'USA'</span> });
+list.add({ firstName: <span class="hljs-string">'James'</span>, lastName: <span class="hljs-string">'Smith'</span>, age: <span class="hljs-number">17</span>, country: <span class="hljs-string">'UK'</span> });
+list.add({ firstName: <span class="hljs-string">'Marc'</span>, lastName: <span class="hljs-string">'Dupont'</span>, age: <span class="hljs-number">56</span>, country: <span class="hljs-string">'France'</span> });
 
 <span class="hljs-keyword">const</span> majorsPeople: Enumerable&lt;Person&gt; = list.where(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x.age &gt; <span class="hljs-number">18</span>);
 
@@ -106,7 +107,10 @@ list.add({ firstName: <span class="hljs-string">'James'</span>, lastName: <span 
     <span class="hljs-comment">// Will display:</span>
     <span class="hljs-comment">// John Doe: 42</span>
     <span class="hljs-comment">// Jane Doe: 38</span>
+    <span class="hljs-comment">// Marc Dupont: 56</span>
 }
+
+<span class="hljs-comment">// Chain methods</span>
 
 <span class="hljs-keyword">const</span> minorsPeopleAges: Enumerable&lt;<span class="hljs-built_in">number</span>&gt; = list.where(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x &lt; <span class="hljs-number">18</span>).select(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x.age);
 
@@ -115,6 +119,26 @@ list.add({ firstName: <span class="hljs-string">'James'</span>, lastName: <span 
     <span class="hljs-comment">// Will display: </span>
     <span class="hljs-comment">// 17</span>
 }
+
+<span class="hljs-comment">// Group elements by a key</span>
+
+<span class="hljs-keyword">const</span> groupedByCountry: Enumerable&lt;Grouping&lt;<span class="hljs-built_in">string</span>, Person&gt;&gt; = list.groupBy(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x.country);
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> group of groupedByCountry) {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`- '<span class="hljs-subst">${group.key}</span>':`</span>);
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> person of group.elements) {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`--- <span class="hljs-subst">${person.firstName}</span> <span class="hljs-subst">${person.lastName}</span>`</span>);
+    }
+}
+
+<span class="hljs-comment">// Will display:</span>
+<span class="hljs-comment">// - 'USA':</span>
+<span class="hljs-comment">// --- John Doe</span>
+<span class="hljs-comment">// --- Jane Doe</span>
+<span class="hljs-comment">// - 'UK':</span>
+<span class="hljs-comment">// --- James Smith</span>
+<span class="hljs-comment">// - 'France':</span>
+<span class="hljs-comment">// --- Marc Dupont</span>
 </code></pre>
 			</div>
 		</div>
