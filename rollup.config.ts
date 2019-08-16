@@ -4,6 +4,7 @@ import sourceMaps from 'rollup-plugin-sourcemaps'
 import typescript from 'rollup-plugin-typescript2'
 import json from 'rollup-plugin-json'
 import { terser } from "rollup-plugin-terser";
+import transformPaths from '@zerollup/ts-transform-paths'
 
 const pkg = require('./package.json')
 
@@ -24,7 +25,12 @@ export default {
     // Allow json resolution
     json(),
     // Compile TypeScript files
-    typescript({ useTsconfigDeclarationDir: true }),
+    typescript({
+      useTsconfigDeclarationDir : true,
+      cacheRoot : '.cache',
+      tsconfig : 'tsconfig.json',
+      transformers: [service => transformPaths(service.getProgram())]
+    }),
     // Allow bundling cjs modules (unlike webpack, rollup doesn't understand cjs)
     commonjs(),
     // Allow node_modules resolution, so you can use 'external' to control
@@ -34,6 +40,6 @@ export default {
     // uglify code
     terser(),
     // Resolve source maps to the original source
-    sourceMaps(),
+    sourceMaps()
   ],
 }

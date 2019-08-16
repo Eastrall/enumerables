@@ -1,8 +1,14 @@
 {
   "name": "enumerables",
-  "version": "1.0.0",
-  "description": "",
-  "keywords": [],
+  "version": "1.0.1",
+  "description": "enumerables is TypeScript implementation of .NET collection and LINQ methods.",
+  "keywords": [
+    "collections",
+    "linq",
+    "dotnet-collection",
+    "list",
+    "strongly-typed-list"
+  ],
   "main": "dist/enumerables.umd.js",
   "module": "dist/enumerables.es5.js",
   "typings": "dist/types/enumerables.d.ts",
@@ -80,6 +86,7 @@
     "@types/faker": "^4.1.5",
     "@types/jest": "^24.0.15",
     "@types/node": "^12.6.8",
+    "@zerollup/ts-transform-paths": "^1.7.3",
     "codecov": "^3.5.0",
     "faker": "^4.1.0",
     "jest": "^24.8.0",
