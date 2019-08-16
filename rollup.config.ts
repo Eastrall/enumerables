@@ -4,11 +4,9 @@ import sourceMaps from 'rollup-plugin-sourcemaps'
 import typescript from 'rollup-plugin-typescript2'
 import json from 'rollup-plugin-json'
 import { terser } from "rollup-plugin-terser";
-import transformPaths from '@zerollup/ts-transform-paths'
 
-const pkg = require('./package.json')
-
-const libraryName = 'enumerables'
+const pkg = require('./package.json');
+const libraryName = 'enumerables';
 
 export default {
   input: `src/${libraryName}.ts`,
@@ -26,10 +24,7 @@ export default {
     json(),
     // Compile TypeScript files
     typescript({
-      useTsconfigDeclarationDir : true,
-      cacheRoot : '.cache',
-      tsconfig : 'tsconfig.json',
-      transformers: [service => transformPaths(service.getProgram())]
+      useTsconfigDeclarationDir : true
     }),
     // Allow bundling cjs modules (unlike webpack, rollup doesn't understand cjs)
     commonjs(),
@@ -37,9 +32,12 @@ export default {
     // which external modules to include in the bundle
     // https://github.com/rollup/rollup-plugin-node-resolve#usage
     resolve(),
-    // uglify code
-    terser(),
     // Resolve source maps to the original source
-    sourceMaps()
+    sourceMaps(),
+    // uglify code
+    terser({
+      include: ['*js'],
+      exclude: ['*ts']
+    }),
   ],
 }
