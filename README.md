@@ -10,6 +10,8 @@
 
 This library provides collections such as `List<T>` and most of the LINQ methods, like `select`, `firstOrDefault`, `where`, `groupBy`, `orderBy` and much more.
 
+> :warning: **This project is not affiliated with Microsoft or the TypeScript team.**
+
 ## Installation
 
 ```
@@ -19,6 +21,8 @@ $ npm install enumerables
 ## Documentation
 
 You can find the documentation of the library here: https://eastrall.github.io/enumerables/
+
+> Parts of the documentation have been taken from the Microsoft documentation website: https://docs.microsoft.com/ in order to provide a reliable documentation about collections and LINQ features. Thank you Microsoft community. :heart:
 
 ## Usage
 
