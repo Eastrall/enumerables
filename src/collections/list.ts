@@ -1,8 +1,8 @@
 import { Enumerable } from '@lib/interfaces/enumerable';
 import { Collection } from "@lib/interfaces/collection";
+import { Grouping } from '@lib/interfaces/grouping';
 import { Func, Func2 } from '@lib/internal/types';
 import * as Linq from '@lib/internal/linq';
-import { Grouping } from '@lib/interfaces/grouping';
 
 /**
  * Represents a strongly typed list of objects.
