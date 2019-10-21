@@ -9,10 +9,10 @@ cache:
 notifications:
   email: false
 node_js:
-  - '10'
   - '11'
+  - '10'
+  - '9'
   - '8'
-  - '6'
 script:
   - npm run build && npm run test:prod
   - npm run build:docs
